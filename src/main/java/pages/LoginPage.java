@@ -17,8 +17,6 @@ public class LoginPage {
 		
 		this.driver = driver;
 		PageFactory.initElements(driver,this);
-		elementUtils = new ElementUtils(driver);
-		
 	}
 	
 	@FindBy(id="input-email")
@@ -34,27 +32,21 @@ public class LoginPage {
 	private WebElement warningMessage;
 	
 	public void enterEmailAddress(String emailText) {
-		
 		elementUtils.typeTextIntoElement(emailField, emailText,CommonUtils.EXPLICIT_WAIT_BASIC_TIME);
-		
 	}
-	
 	public void enterPassword(String passwordText) {
-		
 		elementUtils.typeTextIntoElement(passwordField, passwordText,CommonUtils.EXPLICIT_WAIT_BASIC_TIME);
 		
 	}
 	
 	public AccountPage clickOnLoginButton() {
-		
-		elementUtils.clickOnElement(loginButton,CommonUtils.EXPLICIT_WAIT_BASIC_TIME);
+		elementUtils.clickOnElement(loginButton);
 		return new AccountPage(driver);
-		
 	}
 	
 	public String getWarningMessageText() {
 		
-		return elementUtils.getTextFromElement(warningMessage,CommonUtils.EXPLICIT_WAIT_BASIC_TIME);
+		return elementUtils.getTextFromElement(warningMessage);
 		
 	}
 

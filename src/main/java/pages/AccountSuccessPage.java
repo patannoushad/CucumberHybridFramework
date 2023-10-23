@@ -17,7 +17,7 @@ public class AccountSuccessPage {
 		
 		this.driver = driver;
 		PageFactory.initElements(driver,this);
-		elementUtils = new ElementUtils(driver);
+		//elementUtils = new ElementUtils(driver);
 		
 	}
 	
@@ -26,7 +26,7 @@ public class AccountSuccessPage {
 	
 	public String getPageHeading() {
 		
-		return elementUtils.getTextFromElement(pageHeading,CommonUtils.EXPLICIT_WAIT_BASIC_TIME);
+		return elementUtils.getTextFromElement(pageHeading);
 		
 	}
 

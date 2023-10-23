@@ -17,57 +17,40 @@ public class HomePage {
 		
 		this.driver = driver;
 		PageFactory.initElements(driver,this);
-		elementUtils = new ElementUtils(driver);
-		
+		//elementUtils = new ElementUtils(driver);
 	}
 	
 	@FindBy(xpath="//span[text()='My Account']")
 	private WebElement myAccountDropMenu;
+	public void clickOnMyAccount() {
+
+		elementUtils.clickOnElement(myAccountDropMenu);
+		elementUtils.clickOnElement(registerOption);
+	}
 	
 	@FindBy(linkText="Login")
 	private WebElement loginOption;
+	public LoginPage selectLoginOption() {
+
+		elementUtils.clickOnElement(loginOption);
+		return new LoginPage(driver);
+	}
 	
 	@FindBy(linkText="Register")
 	private WebElement registerOption;
 	
 	@FindBy(name="search")
 	private WebElement searchBoxField;
+	public void enterProductIntoSearchBox(String productText) {
+
+		elementUtils.typeTextIntoElement(searchBoxField,productText,CommonUtils.EXPLICIT_WAIT_BASIC_TIME);
+	}
 	
 	@FindBy(xpath="//button[contains(@class,'btn-default')]")
 	private WebElement searchButton;
-	
-	public void clickOnMyAccount() {
-		
-		elementUtils.clickOnElement(myAccountDropMenu,CommonUtils.EXPLICIT_WAIT_BASIC_TIME);
-		
-	}
-	
-	public LoginPage selectLoginOption() {
-		
-		elementUtils.clickOnElement(loginOption,CommonUtils.EXPLICIT_WAIT_BASIC_TIME);
-		return new LoginPage(driver);
-		
-	}
-	
-	public RegisterPage selectRegisterOption() {
-		
-		elementUtils.clickOnElement(registerOption,CommonUtils.EXPLICIT_WAIT_BASIC_TIME);
-		return new RegisterPage(driver);
-		
-	}
-	
-	public void enterProductIntoSearchBox(String productText) {
-		
-		elementUtils.typeTextIntoElement(searchBoxField,productText,CommonUtils.EXPLICIT_WAIT_BASIC_TIME);
-		
-	}
-	
 	public SearchResultsPage clickOnSearchButton() {
-		
-		elementUtils.clickOnElement(searchButton,CommonUtils.EXPLICIT_WAIT_BASIC_TIME);
-		return new SearchResultsPage(driver);
-		
-	}
-	
 
+		elementUtils.clickOnElement(searchButton);
+		return new SearchResultsPage(driver);
+	}
 }

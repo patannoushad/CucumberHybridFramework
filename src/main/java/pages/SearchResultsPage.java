@@ -17,7 +17,7 @@ public class SearchResultsPage {
 		
 		this.driver = driver;
 		PageFactory.initElements(driver,this);
-		elementUtils = new ElementUtils(driver);
+		//elementUtils = new ElementUtils(driver);
 		
 	}
 	
@@ -35,7 +35,7 @@ public class SearchResultsPage {
 	
 	public String getMessageText() {
 		
-		return elementUtils.getTextFromElement(messageText,CommonUtils.EXPLICIT_WAIT_BASIC_TIME);
+		return elementUtils.getTextFromElement(messageText);
 		
 	}
 

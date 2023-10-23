@@ -4,9 +4,11 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-
-import utils.CommonUtils;
+import org.testng.Assert;
 import utils.ElementUtils;
+import utils.TestData;
+
+import java.util.List;
 
 public class RegisterPage {
 	
@@ -17,7 +19,7 @@ public class RegisterPage {
 		
 		this.driver = driver;
 		PageFactory.initElements(driver,this);
-		elementUtils = new ElementUtils(driver);
+		//elementUtils = new ElementUtils(driver);
 		
 	}
 	
@@ -65,97 +67,34 @@ public class RegisterPage {
 	
 	@FindBy(xpath="//input[@id='input-password']/following-sibling::div")
 	private WebElement passwordWarning;
-	
-	public void enterFirstName(String firstNameText) {
-		
-		elementUtils.typeTextIntoElement(firstNameField, firstNameText,CommonUtils.EXPLICIT_WAIT_BASIC_TIME);
-		
-	}
-	
-	public void enterLastName(String lastNameText) {
-		
-		elementUtils.typeTextIntoElement(lastNameField, lastNameText,CommonUtils.EXPLICIT_WAIT_BASIC_TIME);
-		
-	}
-	
-	public void enterEmailAddress(String emailText) {
-		
-		elementUtils.typeTextIntoElement(emailField, emailText,CommonUtils.EXPLICIT_WAIT_BASIC_TIME);
-		
-	}
-	
-	public void enterTelephoneNumber(String telephoneText) {
-		
-		elementUtils.typeTextIntoElement(telephoneField, telephoneText,CommonUtils.EXPLICIT_WAIT_BASIC_TIME);
-		
-	}
-	
-	public void enterPassword(String passwordText) {
-		
-		elementUtils.typeTextIntoElement(passwordField, passwordText,CommonUtils.EXPLICIT_WAIT_BASIC_TIME);
-		
-	}
-	
-	public void enterConfirmPassword(String passwordText) {
-		
-		elementUtils.typeTextIntoElement(passwordConfirmField, passwordText,CommonUtils.EXPLICIT_WAIT_BASIC_TIME);
-		
-	}
-	
-	public void selectPrivacyPolicy() {
-		
-		elementUtils.clickOnElement(privacyPolicyOption,CommonUtils.EXPLICIT_WAIT_BASIC_TIME);
-		
-	}
+	@FindBy(xpath = "//div[@class='text-danger']")
+	public List<WebElement> errorMessages;
 	
 	public AccountSuccessPage clickOnContinueButton() {
 		
-		elementUtils.clickOnElement(continueButton,CommonUtils.EXPLICIT_WAIT_BASIC_TIME);
+		elementUtils.clickOnElement(continueButton);
 		return new AccountSuccessPage(driver);
 		
 	}
-	
-	public void selectYesNewsletterOption() {
-		
-		elementUtils.clickOnElement(YesNewsletterOption,CommonUtils.EXPLICIT_WAIT_BASIC_TIME);
-		
+	public void ContinueButton(){
+		continueButton.click();
 	}
-	
-	public String getWarningMessageText() {
-		
-		return elementUtils.getTextFromElement(warningMessage,CommonUtils.EXPLICIT_WAIT_BASIC_TIME);
-		
+
+	public void enterRegestrationdetails() {
+		firstNameField.sendKeys(TestData.get("firstName"));
+		lastNameField.sendKeys(TestData.get("lastname"));
+		emailField.sendKeys(TestData.get("email"));
+		telephoneField.sendKeys(TestData.get("telephone"));
+		passwordField.sendKeys(TestData.get("password"));
+		passwordConfirmField.sendKeys(TestData.get("password confirm"));
 	}
-	
-	public String getFirstNameWarning() {
-		
-		return elementUtils.getTextFromElement(firstNameWarning,CommonUtils.EXPLICIT_WAIT_BASIC_TIME);
-		
+
+
+	public void verifyErrorMessage() {
+		for (WebElement ele : errorMessages) {
+			Assert.assertEquals(ele.getText(),TestData.get("Condition"));
+		}
+
 	}
-	
-	public String getLastNameWarning() {
-		
-		return elementUtils.getTextFromElement(lastNameWaring,CommonUtils.EXPLICIT_WAIT_BASIC_TIME);
-		
-	}
-	
-	public String getEmailWarning() {
-		
-		return elementUtils.getTextFromElement(emailWarning,CommonUtils.EXPLICIT_WAIT_BASIC_TIME);
-		
-	}
-	
-	public String getTelephoneWarning() {
-		
-		return elementUtils.getTextFromElement(telephoneWarning,CommonUtils.EXPLICIT_WAIT_BASIC_TIME);
-		
-	}
-	
-	public String getPasswordWarning() {
-		
-		return elementUtils.getTextFromElement(passwordWarning,CommonUtils.EXPLICIT_WAIT_BASIC_TIME);
-		
-	}
-	
 
 }
