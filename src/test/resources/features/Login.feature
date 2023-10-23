@@ -23,5 +23,13 @@ Feature: Login functionality
 #      | emptyEmail       |
 #      | emptyPassword    |
 #      | emptyCredential  |
+#      | check commit     |
+      | invalidPassword  |
+       | emptyEmail       |
+#      | emptyPassword    |
+#      | emptyCredential  |
+#      | check commit     |
+
+
 
 
