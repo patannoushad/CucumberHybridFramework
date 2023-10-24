@@ -12,6 +12,7 @@ import pages.ShoppingCartPage;
 public class EndtoEnd {
 
     WebDriver driver;
+    AccountPage accountPage=new AccountPage(DriverFactory.getDriver());
     @Given("User opens the Applications")
     public void user_opens_the_application() {
         driver = DriverFactory.getDriver();
@@ -19,14 +20,14 @@ public class EndtoEnd {
 
     @When("User Add Product to Cart")
     public void User_Add_Product_to_Cart()  {
-        AccountPage accountPage=new AccountPage(DriverFactory.getDriver());
+
         accountPage.dropdownComponent();
         accountPage.selectMonitor();
     }
 
     @Then("User should Verify Total Amount")
     public void User_should_Verify_Total_Amount(){
-
+        //Assert.
     }
 
     @When("User Add MacBook and IPhone to Cart")
@@ -46,8 +47,7 @@ public class EndtoEnd {
     ShoppingCartPage shoppingCartPage=new ShoppingCartPage(DriverFactory.getDriver());
     @Then("User should Verify Product Name")
     public void User_should_Verify_Product_Name(){
-
-//        shoppingCartPage.productName();
+        Assert.assertTrue(shoppingCartPage.alerText().contains("Products marked with *** are not available in the desired quantity or not in stock!"));
     }
 }
 

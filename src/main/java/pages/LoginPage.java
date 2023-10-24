@@ -20,10 +20,10 @@ public class LoginPage {
 	}
 	
 	@FindBy(id="input-email")
-	private WebElement emailField;
+	public WebElement emailField;
 	
 	@FindBy(id="input-password")
-	private WebElement passwordField;
+	public WebElement passwordField;
 	
 	@FindBy(xpath="//input[@value='Login']")
 	private WebElement loginButton;
@@ -32,10 +32,10 @@ public class LoginPage {
 	private WebElement warningMessage;
 	
 	public void enterEmailAddress(String emailText) {
-		elementUtils.typeTextIntoElement(emailField, emailText,CommonUtils.EXPLICIT_WAIT_BASIC_TIME);
+		elementUtils.typeTextIntoElement(emailField, emailText);
 	}
 	public void enterPassword(String passwordText) {
-		elementUtils.typeTextIntoElement(passwordField, passwordText,CommonUtils.EXPLICIT_WAIT_BASIC_TIME);
+		elementUtils.typeTextIntoElement(passwordField, passwordText);
 		
 	}
 	

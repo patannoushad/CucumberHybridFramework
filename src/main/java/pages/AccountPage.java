@@ -56,7 +56,7 @@ public class AccountPage {
 		elementUtils.clickOnElement(viewCartLink);
 	}
 	public boolean displayStatusOfEditYourAccountInformationOption() {
-		return elementUtils.displayStatusOfElement(editYourAccountInformationOption,20);
+		return elementUtils.displayStatusOfElement(editYourAccountInformationOption);
 	}
 
 

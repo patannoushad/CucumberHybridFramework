@@ -18,7 +18,7 @@ public class Login {
 
         WebDriver driver;
         private LoginPage loginPage;
-//        private AccountPage accountPage;
+        private AccountPage accountPage;
 //        private CommonUtils commonUtils;
 
         Properties prop = new Properties();
@@ -57,7 +57,7 @@ public class Login {
         @Then("User should get successfully loggedin")
         public void user_should_get_successfully_loggedin() {
 
-            //	Assert.assertTrue(accountPage.displayStatusOfEditYourAccountInformationOption());
+            	Assert.assertTrue(accountPage.displayStatusOfEditYourAccountInformationOption());
         }
 
         @When("User gives (.*) in field")

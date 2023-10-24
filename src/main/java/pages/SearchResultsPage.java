@@ -29,7 +29,7 @@ public class SearchResultsPage {
 	
 	public boolean displayStatusOfValidProduct() {
 		
-		return elementUtils.displayStatusOfElement(validHPProduct,CommonUtils.EXPLICIT_WAIT_BASIC_TIME);
+		return elementUtils.displayStatusOfElement(validHPProduct);
 		
 	}
 	

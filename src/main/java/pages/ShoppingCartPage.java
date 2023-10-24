@@ -4,7 +4,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import utils.CommonUtils;
 import utils.ElementUtils;
 
 public class ShoppingCartPage {
@@ -29,6 +28,11 @@ public class ShoppingCartPage {
         return textShoppingCart;
     }
 
+    @FindBy(xpath = "//body/div[@id='checkout-cart']/div[1]")
+    public WebElement alerText;
+    public String  alerText(){
+        return elementUtils.getTextFromElement(alerText);
+    }
 
 }
 

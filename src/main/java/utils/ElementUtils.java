@@ -21,8 +21,8 @@ public class ElementUtils  {
         webElement.click();
     }
 
-    public void typeTextIntoElement(WebElement element, String textToBeTyped, long durationInSeconds) {
-        WebElement webElement = waitForElement(element, durationInSeconds);
+    public void typeTextIntoElement(WebElement element, String textToBeTyped) {
+        WebElement webElement = waitForElement(element,CommonUtils.IMPLICIT_WAIT_TIME);
         webElement.click();
         webElement.clear();
         webElement.sendKeys(textToBeTyped);
@@ -39,22 +39,22 @@ public class ElementUtils  {
         return webElement;
     }
 
-    public void selectOptionInDropdown(WebElement element, String dropDownOption, long durationInSeconds) {
-        WebElement webElement = waitForElement(element, durationInSeconds);
+    public void selectOptionInDropdown(WebElement element, String dropDownOption) {
+        WebElement webElement = waitForElement(element, CommonUtils.IMPLICIT_WAIT_TIME);
         Select select = new Select(webElement);
         select.selectByVisibleText(dropDownOption);
     }
 
-    public void acceptAlert(long durationInSeconds) {
+    public void acceptAlert() {
 
-        Alert alert = waitForAlert(durationInSeconds);
+        Alert alert = waitForAlert(CommonUtils.IMPLICIT_WAIT_TIME);
         alert.accept();
 
     }
 
-    public void dismissAlert(long durationInSeconds) {
+    public void dismissAlert() {
 
-        Alert alert = waitForAlert(durationInSeconds);
+        Alert alert = waitForAlert(CommonUtils.IMPLICIT_WAIT_TIME);
         alert.dismiss();
 
     }
@@ -93,17 +93,17 @@ public class ElementUtils  {
 
     }
 
-    public void javaScriptClick(WebElement element, long durationInSeconds) {
+    public void javaScriptClick(WebElement element) {
 
-        WebElement webElement = waitForVisibilityOfElement(element, durationInSeconds);
+        WebElement webElement = waitForVisibilityOfElement(element, CommonUtils.IMPLICIT_WAIT_TIME);
         JavascriptExecutor jse = ((JavascriptExecutor) driver);
         jse.executeScript("arguments[0].click();", webElement);
 
     }
 
-    public void javaScriptType(WebElement element, long durationInSeconds, String textToBeTyped) {
+    public void javaScriptType(WebElement element, String textToBeTyped) {
 
-        WebElement webElement = waitForVisibilityOfElement(element, durationInSeconds);
+        WebElement webElement = waitForVisibilityOfElement(element,CommonUtils.IMPLICIT_WAIT_TIME);
         JavascriptExecutor jse = ((JavascriptExecutor) driver);
         jse.executeScript("arguments[0].value='" + textToBeTyped + "'", webElement);
 
@@ -116,10 +116,10 @@ public class ElementUtils  {
 
     }
 
-    public boolean displayStatusOfElement(WebElement element, long durationInSeconds) {
+    public boolean displayStatusOfElement(WebElement element) {
 
         try {
-            WebElement webElement = waitForVisibilityOfElement(element, durationInSeconds);
+            WebElement webElement = waitForVisibilityOfElement(element,CommonUtils.IMPLICIT_WAIT_TIME);
             return webElement.isDisplayed();
         } catch (Throwable e) {
             return false;

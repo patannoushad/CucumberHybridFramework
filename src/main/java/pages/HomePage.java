@@ -43,7 +43,7 @@ public class HomePage {
 	private WebElement searchBoxField;
 	public void enterProductIntoSearchBox(String productText) {
 
-		elementUtils.typeTextIntoElement(searchBoxField,productText,CommonUtils.EXPLICIT_WAIT_BASIC_TIME);
+		elementUtils.typeTextIntoElement(searchBoxField,productText);
 	}
 	
 	@FindBy(xpath="//button[contains(@class,'btn-default')]")
