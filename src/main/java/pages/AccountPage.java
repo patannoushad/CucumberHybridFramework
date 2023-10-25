@@ -59,5 +59,12 @@ public class AccountPage {
 		return elementUtils.displayStatusOfElement(editYourAccountInformationOption);
 	}
 
+	@FindBy(xpath = "(//div[@class='caption']/h4)[1]")
+	public WebElement AppleCiniema30;
+	@FindBy(xpath = "(//div[@class='caption']/h4)[2]/a")
+	public WebElement samsungSyncMaster941BW;
+	public String moniterName(){
+		return elementUtils.getTextFromElement(samsungSyncMaster941BW);
+	}
 
 }

@@ -21,7 +21,7 @@ public class HomePage {
 	}
 	
 	@FindBy(xpath="//span[text()='My Account']")
-	private WebElement myAccountDropMenu;
+	public WebElement myAccountDropMenu;
 	public void clickOnMyAccount() {
 
 		elementUtils.clickOnElement(myAccountDropMenu);
@@ -37,7 +37,7 @@ public class HomePage {
 	}
 	
 	@FindBy(linkText="Register")
-	private WebElement registerOption;
+	public WebElement registerOption;
 	
 	@FindBy(name="search")
 	private WebElement searchBoxField;
@@ -49,8 +49,8 @@ public class HomePage {
 	@FindBy(xpath="//button[contains(@class,'btn-default')]")
 	private WebElement searchButton;
 	public SearchResultsPage clickOnSearchButton() {
-
 		elementUtils.clickOnElement(searchButton);
 		return new SearchResultsPage(driver);
 	}
+
 }

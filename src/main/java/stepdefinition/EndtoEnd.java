@@ -25,9 +25,9 @@ public class EndtoEnd {
         accountPage.selectMonitor();
     }
 
-    @Then("User should Verify Total Amount")
-    public void User_should_Verify_Total_Amount(){
-        //Assert.
+    @Then("User should Verify Total no of Products")
+    public void User_should_Verify_Total_no_of_Products(){
+        Assert.assertTrue(accountPage.moniterName().contains("Samsung SyncMaster 941BW"));
     }
 
     @When("User Add MacBook and IPhone to Cart")
