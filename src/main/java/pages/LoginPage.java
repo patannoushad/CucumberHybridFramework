@@ -9,17 +9,14 @@ import utils.CommonUtils;
 import utils.ElementUtils;
 
 public class LoginPage {
-	
-	WebDriver driver;
-	private ElementUtils elementUtils;
-	
 	public LoginPage(WebDriver driver) {
-		
 		this.driver = driver;
 		PageFactory.initElements(driver,this);
 	}
-	
-	@FindBy(id="input-email")
+	WebDriver driver;
+	ElementUtils elementUtils = new ElementUtils() ;
+
+	@FindBy(xpath = "//input[@id=\"input-email\"]")
 	public WebElement emailField;
 	
 	@FindBy(id="input-password")

@@ -17,12 +17,12 @@ public class ElementUtils  {
     Actions actions= new Actions(driver);
 
     public void clickOnElement(WebElement element)  {
-        WebElement webElement = waitForElement(element,CommonUtils.IMPLICIT_WAIT_TIME);
+        WebElement webElement = waitForElement(element,CommonUtils.EXPLICIT_WAIT_BASIC_TIME);
         webElement.click();
     }
 
     public void typeTextIntoElement(WebElement element, String textToBeTyped) {
-        WebElement webElement = waitForElement(element,CommonUtils.IMPLICIT_WAIT_TIME);
+        WebElement webElement = waitForElement(element,CommonUtils.EXPLICIT_WAIT_BASIC_TIME);
         webElement.click();
         webElement.clear();
         webElement.sendKeys(textToBeTyped);

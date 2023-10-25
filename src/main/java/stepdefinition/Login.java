@@ -18,7 +18,8 @@ public class Login {
 
         WebDriver driver;
         private LoginPage loginPage;
-        private AccountPage accountPage;
+
+    private AccountPage accountPage;
 //        private CommonUtils commonUtils;
 
         Properties prop = new Properties();
@@ -39,25 +40,24 @@ public class Login {
         public void User_enters_valid_email_into_email_the_field(String emailText) {
             HomePage homePage = new HomePage(DriverFactory.getDriver());
             homePage.clickOnMyAccount();
-            loginPage = homePage.selectLoginOption();
-            loginPage.enterEmailAddress(emailText);
+            LoginPage login = new LoginPage(DriverFactory.getDriver());
+            login.enterEmailAddress(emailText);
         }
         @And("^User enters valid password (.+) into the password field$")
         public void user_enters_valid_password_into_the_password_field(String passwordText) {
-
-            //loginPage.enterPassword(passwordText);
+            LoginPage login = new LoginPage(DriverFactory.getDriver());
+            login.enterPassword(passwordText);
         }
         @And("User clicks on Login button on page")
         public void user_clicks_on_login_button_on_page() {
-
-//		accountPage = loginPage.clickOnLoginButton();
-//		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+            LoginPage login = new LoginPage(DriverFactory.getDriver());
+            login.clickOnLoginButton();
         }
 
         @Then("User should get successfully loggedin")
         public void user_should_get_successfully_loggedin() {
-
-            	Assert.assertTrue(accountPage.displayStatusOfEditYourAccountInformationOption());
+            AccountPage accountPage1 = new AccountPage(DriverFactory.getDriver());
+            	Assert.assertTrue(accountPage1.displayStatusOfEditYourAccountInformationOption());
         }
 
         @When("User gives (.*) in field")

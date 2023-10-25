@@ -9,29 +9,23 @@ import utils.CommonUtils;
 import utils.ElementUtils;
 
 public class HomePage {
-	
-	WebDriver driver;
-	private ElementUtils elementUtils;
-	
 	public HomePage(WebDriver driver) {
-		
 		this.driver = driver;
 		PageFactory.initElements(driver,this);
-		//elementUtils = new ElementUtils(driver);
 	}
-	
+	WebDriver driver;
+	ElementUtils elementUtils = new ElementUtils() ;
+
 	@FindBy(xpath="//span[text()='My Account']")
 	public WebElement myAccountDropMenu;
 	public void clickOnMyAccount() {
-
 		elementUtils.clickOnElement(myAccountDropMenu);
-		elementUtils.clickOnElement(registerOption);
+		elementUtils.clickOnElement(loginOption);
 	}
 	
 	@FindBy(linkText="Login")
-	private WebElement loginOption;
+	public WebElement loginOption;
 	public LoginPage selectLoginOption() {
-
 		elementUtils.clickOnElement(loginOption);
 		return new LoginPage(driver);
 	}
