@@ -26,14 +26,13 @@ public class LoginPage {
 	private WebElement loginButton;
 	
 	@FindBy(xpath="//div[contains(@class,'alert-dismissible')]")
-	private WebElement warningMessage;
+	public WebElement warningMessage;
 	
 	public void enterEmailAddress(String emailText) {
 		elementUtils.typeTextIntoElement(emailField, emailText);
 	}
 	public void enterPassword(String passwordText) {
 		elementUtils.typeTextIntoElement(passwordField, passwordText);
-		
 	}
 	
 	public AccountPage clickOnLoginButton() {
@@ -42,9 +41,7 @@ public class LoginPage {
 	}
 	
 	public String getWarningMessageText() {
-		
 		return elementUtils.getTextFromElement(warningMessage);
-		
 	}
 
 }

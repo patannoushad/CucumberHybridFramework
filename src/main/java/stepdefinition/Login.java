@@ -11,6 +11,7 @@ import pages.AccountPage;
 import pages.HomePage;
 import pages.LoginPage;
 import utils.CommonUtils;
+import utils.ConfigReader;
 
 import java.util.Properties;
 
@@ -22,19 +23,15 @@ public class Login {
     private AccountPage accountPage;
 //        private CommonUtils commonUtils;
 
-        Properties prop = new Properties();
+
 
         @Given("^User navigate to login page$")
         public void user_navigate_to_login_page() {
 
             driver = DriverFactory.getDriver();
-            AccountPage accountPage=new AccountPage(DriverFactory.getDriver());
-            accountPage.dropdownComponent();
-            accountPage.selectMonitor();
 //		HomePage homePage = new HomePage(DriverFactory.getDriver());
 //		homePage.clickOnMyAccount();
 //		loginPage = homePage.selectLoginOption();
-
         }
         @When("User enters valid email {string} into the email field")
         public void User_enters_valid_email_into_email_the_field(String emailText) {
@@ -60,44 +57,68 @@ public class Login {
             	Assert.assertTrue(accountPage1.displayStatusOfEditYourAccountInformationOption());
         }
 
-        @When("User gives (.*) in field")
+        @When("^User gives (.*) in field$")
         public void User_gives_Condition_in_field(String val) {
-
-
-
+            HomePage homePage = new HomePage(DriverFactory.getDriver());
+            homePage.clickOnMyAccount();
+            LoginPage loginP = new LoginPage(DriverFactory.getDriver());
             //InvalidEmail
             if(val.equals("invalidEmail") ){
-
-                loginPage.enterEmailAddress(prop.getProperty("invalidEmail"));
-                loginPage.enterPassword(prop.getProperty("validPswd"));
+                loginP.enterEmailAddress(ConfigReader.getPropertyValue("invalidEmails"));
+                loginP.enterPassword(ConfigReader.getPropertyValue("validPswds"));
             }
             //InvalidPassword
             else if (val.equals("invalidPassword")) {
-                loginPage.enterEmailAddress(prop.getProperty("validEmail"));
-                loginPage.enterPassword(prop.getProperty("invalidPswd"));
+                loginP.enterEmailAddress(ConfigReader.getPropertyValue("validEmails"));
+                loginP.enterPassword(ConfigReader.getPropertyValue("invalidPswds"));
             }
             //emptyEmail
             else if (val.equals("emptyEmail")) {
-                loginPage.enterEmailAddress(" ");
-                loginPage.enterPassword(prop.getProperty("invalidPswd"));
+                loginP.enterPassword(ConfigReader.getPropertyValue("validPswds"));
             }
             //emptyPassword
             else if (val.equals("emptyPassword")) {
-                loginPage.enterEmailAddress(prop.getProperty("validEmail"));
-                loginPage.enterPassword(" ");
+                loginP.enterEmailAddress(ConfigReader.getPropertyValue("validEmails"));
             }
             //emptyCredential
             else if (val.equals("emptyCredential")) {
-                loginPage.enterEmailAddress(" ");
-                loginPage.enterPassword(" ");
+//                loginPage.enterEmailAddress(" ");
+//                loginPage.enterPassword(" ");
             }
         }
-        @Then("User should get a warning message about credentials mismatch")
-        public void user_should_get_a_warning_message_about_credentials_mismatch() {
+        @Then("^User should get a warning message about credentials mismatch (.*)$")
+        public void user_should_get_a_warning_message_about_credentials_mismatch(String val) {
+            LoginPage loginP = new LoginPage(DriverFactory.getDriver());
 
-            Assert.assertTrue(loginPage.getWarningMessageText().contains("Warning: No match for E-Mail Address and/or Password."));
 
+            //InvalidEmail
+            if(val.equals("errorMsg") ) {
+                Assert.assertTrue(loginP.getWarningMessageText().contains("Warning: No match for E-Mail Address and/or Password."));
+            }else {
+                Assert.assertTrue(loginP.getWarningMessageText().contains("Warning: No match for E-Mail Address and/or Password."));
+                System.out.println((loginP.getWarningMessageText())+"===============else");
+            }
+//            //InvalidPassword
+//            else if (val.equals("invalidPassword")) {
+//                Assert.assertTrue(loginP.getWarningMessageText().contains("Warning: No match for E-Mail Address and/or Password."));
+//            }
+//            //emptyEmail
+//            else if (val.equals("emptyEmail")) {
+//                Assert.assertTrue(loginP.getWarningMessageText().contains("Warning: No match for E-Mail Address and/or Password."));
+//            }
+//            //emptyPassword
+//            else if (val.equals("emptyPassword")) {
+//                Assert.assertTrue(loginP.getWarningMessageText().contains("Warning: No match for E-Mail Address and/or Password."));
+//            }
+//            //emptyCredential
+//            else if (val.equals("emptyCredential")) {
+//                Assert.assertTrue(loginP.getWarningMessageText().contains("Warning: No match for E-Mail Address and/or Password."));
+//            }
+//            else  {
+//                Assert.assertTrue(loginP.getWarningMessageText().contains("Warning: No match for E-Mail Address and/or Password."));
+//            }
         }
+
     }
 
 

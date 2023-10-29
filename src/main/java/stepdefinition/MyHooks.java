@@ -21,7 +21,7 @@ public class MyHooks {
                 byte[] srcScreenshot = (byte[])((TakesScreenshot)DriverFactory.getDriver()).getScreenshotAs(OutputType.BYTES);
                 scenario.attach(srcScreenshot, "image/png", scenarioName);
             }
-        //    DriverFactory.getDriver().close();
+            DriverFactory.getDriver().close();
         }
     }
 
