@@ -12,6 +12,7 @@ import pages.HomePage;
 import pages.LoginPage;
 import utils.CommonUtils;
 import utils.ConfigReader;
+import utils.ElementUtils;
 
 import java.util.Properties;
 
@@ -21,6 +22,8 @@ public class Login {
         private LoginPage loginPage;
 
     private AccountPage accountPage;
+    ElementUtils elementUtils = new ElementUtils() ;
+
 //        private CommonUtils commonUtils;
 
 
@@ -61,6 +64,7 @@ public class Login {
         public void User_gives_Condition_in_field(String val) {
             HomePage homePage = new HomePage(DriverFactory.getDriver());
             homePage.clickOnMyAccount();
+            homePage.selectLoginOption();
             LoginPage loginP = new LoginPage(DriverFactory.getDriver());
             //InvalidEmail
             if(val.equals("invalidEmail") ){

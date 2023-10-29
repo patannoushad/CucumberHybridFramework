@@ -20,7 +20,7 @@ public class HomePage {
 	public WebElement myAccountDropMenu;
 	public void clickOnMyAccount() {
 		elementUtils.clickOnElement(myAccountDropMenu);
-		elementUtils.clickOnElement(loginOption);
+	//	elementUtils.clickOnElement(loginOption);
 	}
 	
 	@FindBy(linkText="Login")
@@ -32,11 +32,14 @@ public class HomePage {
 	
 	@FindBy(linkText="Register")
 	public WebElement registerOption;
+	public LoginPage selectRegisterOption(){
+		elementUtils.clickOnElement(registerOption);
+		return new LoginPage(driver);
+	}
 	
 	@FindBy(name="search")
 	private WebElement searchBoxField;
 	public void enterProductIntoSearchBox(String productText) {
-
 		elementUtils.typeTextIntoElement(searchBoxField,productText);
 	}
 	

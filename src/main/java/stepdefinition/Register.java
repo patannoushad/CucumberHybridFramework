@@ -2,12 +2,15 @@ package stepdefinition;
 
 import factory.DriverFactory;
 import io.cucumber.datatable.DataTable;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import pages.AccountSuccessPage;
 import pages.HomePage;
+import pages.LoginPage;
 import pages.RegisterPage;
 import utils.CommonUtils;
 import utils.ElementUtils;
@@ -35,7 +38,7 @@ public class Register {
             System.out.println("Driver ----------" +driver);
             TestData.readTestData(testCaseID);
             System.out.println("TestData -------"+testCaseID);
-            //  registerPage.enterRegestrationdetails();
+              registerPage.enterRegestrationdetails();
         }
 
         @When("User dont enter detail into fields")
@@ -55,7 +58,20 @@ public class Register {
             //Assert.assertEquals("Your Account Has Been Created!",accountSuccessPage.getPageHeading());
         }
 
+    @When("^User enter (.*) in field$")
+    public void User_enter_Condition_in_field(String testcaseID) throws FileNotFoundException {
+        HomePage homePage = new HomePage(DriverFactory.getDriver());
+        homePage.clickOnMyAccount();
+        homePage.selectRegisterOption();
+        TestData.readTestData(testcaseID);
+        registerPage.enterRegestrationdetails();
+    }
+    @Then("^User should get a warning message about credential mismatch (.*)$")
+    public void user_should_get_a_warning_message_about_credential_mismatch(String testcaseID) {
+        registerPage.verifyErrorMessage();
 
     }
+}
+
 
 

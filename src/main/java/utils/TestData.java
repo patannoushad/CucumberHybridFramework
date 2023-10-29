@@ -1,7 +1,10 @@
 package utils;
 
 import org.apache.poi.ss.usermodel.*;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.PageFactory;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.util.HashMap;
@@ -9,22 +12,25 @@ import java.util.Hashtable;
 import java.util.Map;
 
 public class TestData {
+    public TestData(WebDriver driver) {
+        this.driver = driver;
+        PageFactory.initElements(driver,this);
+    }
+    WebDriver driver;
 
-    private static Map<Integer,String>key=new Hashtable<>();
-    private static Map<Integer,String>values=new HashMap<>();
+    public static Map<Integer,String>key=new Hashtable<>();
+    public static Map<Integer,String>values=new HashMap<>();
     static Map<String,String>datacomb=new Hashtable<>();
-    static FileInputStream file;
-
+    static File  file = new File(System.getProperty("user.dir")+"\\src\\test\\resources\\testData\\Country.xlsx");
     public static void readTestData(String testCaseID) throws FileNotFoundException {
         try {
-            file = new FileInputStream("\\src\\test\\resources\\testData\\Country.xlsx");
             Workbook wb = WorkbookFactory.create(file);
             for(Sheet sheet:wb) {
                 Sheet sh = wb.getSheet(sheet.getSheetName());
                 for (Row row : sh) {
                     Cell firstCell = row.getCell(0);
                     String firstCellValue = firstCell.getStringCellValue();
-                    if (firstCellValue.equalsIgnoreCase("TestCaseID")) {
+                    if (firstCellValue.equalsIgnoreCase("testcaseID")) {
                         for (Cell cell : row) {
                             key.put(cell.getColumnIndex(), cell.getStringCellValue());
                         }
@@ -45,12 +51,7 @@ public class TestData {
          System.out.println(e.getMessage());
         }
     }
-
     public static String get(String key) {
-        if (datacomb.containsKey(key)) {
-           return datacomb.get(key);
-        } else {
-            return null;
-        }
+        return datacomb.getOrDefault(key,null);
     }
 }

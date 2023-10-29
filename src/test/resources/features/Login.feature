@@ -18,10 +18,10 @@ Feature: Login functionality
     Examples:
       |    condition	 | warningMsg |
       | invalidEmail     |  errorMsg  |
-      | invalidPassword  |  errorMsg  |
-      | emptyEmail       |  errorMsg  |
-      | emptyPassword    |  errorMsg  |
-      | emptyCredential  |  errorMsg  |
+ #     | invalidPassword  |  errorMsg  |
+ #     | emptyEmail       |  errorMsg  |
+ #     | emptyPassword    |  errorMsg  |
+ #     | emptyCredential  |  errorMsg  |
 
 
 

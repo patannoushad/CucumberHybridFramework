@@ -5,7 +5,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
+import utils.ConfigReader;
 import utils.ElementUtils;
+import utils.Test;
 import utils.TestData;
 
 import java.util.List;
@@ -13,18 +15,16 @@ import java.util.List;
 public class RegisterPage {
 	
 	WebDriver driver;
-	private ElementUtils elementUtils;
-	
+	public ElementUtils elementUtils;
 	public RegisterPage(WebDriver driver) {
 		
 		this.driver = driver;
 		PageFactory.initElements(driver,this);
 		//elementUtils = new ElementUtils(driver);
-		
 	}
 	
 	@FindBy(id="input-firstname")
-	private WebElement firstNameField;
+	public WebElement firstNameField;
 	
 	@FindBy(id="input-lastname")
 	private WebElement lastNameField;
@@ -38,7 +38,7 @@ public class RegisterPage {
 	@FindBy(id="input-password")
 	private WebElement passwordField;
 	
-	@FindBy(id="input-confirm")
+	@FindBy(xpath = "//input[@name='confirm']")
 	private WebElement passwordConfirmField;
 	
 	@FindBy(name="agree")
@@ -71,30 +71,27 @@ public class RegisterPage {
 	public List<WebElement> errorMessages;
 	
 	public AccountSuccessPage clickOnContinueButton() {
-		
 		elementUtils.clickOnElement(continueButton);
 		return new AccountSuccessPage(driver);
-		
 	}
 	public void ContinueButton(){
 		continueButton.click();
 	}
 
 	public void enterRegestrationdetails() {
-		firstNameField.sendKeys(TestData.get("firstName"));
+		firstNameField.sendKeys(TestData.get("firstname"));
 		lastNameField.sendKeys(TestData.get("lastname"));
 		emailField.sendKeys(TestData.get("email"));
 		telephoneField.sendKeys(TestData.get("telephone"));
 		passwordField.sendKeys(TestData.get("password"));
-		passwordConfirmField.sendKeys(TestData.get("password confirm"));
+		passwordConfirmField.sendKeys(TestData.get("pswdConfirm"));
+		privacyPolicyOption.click();
+		continueButton.click();
+
 	}
-
-
 	public void verifyErrorMessage() {
 		for (WebElement ele : errorMessages) {
 			Assert.assertEquals(ele.getText(),TestData.get("Condition"));
 		}
-
 	}
-
 }
