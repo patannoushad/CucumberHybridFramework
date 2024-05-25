@@ -17,10 +17,8 @@ public class EndtoEnd {
     public void user_opens_the_application() {
         driver = DriverFactory.getDriver();
     }
-
     @When("User Add Product to Cart")
     public void User_Add_Product_to_Cart()  {
-
         accountPage.dropdownComponent();
         accountPage.selectMonitor();
     }
@@ -29,7 +27,6 @@ public class EndtoEnd {
     public void User_should_Verify_Total_no_of_Products(){
         Assert.assertTrue(accountPage.moniterName().contains("Samsung SyncMaster 941BW"));
     }
-
     @When("User Add MacBook and IPhone to Cart")
     public void User_Add_MacBook_and_IPhone_to_Cart(){
         AccountPage accountPage=new AccountPage(driver);

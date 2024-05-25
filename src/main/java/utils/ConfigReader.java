@@ -19,7 +19,6 @@ public class ConfigReader {
             e.printStackTrace();
         }
     }
-
     public static String getPropertyValue(String key) {
             return prop.getProperty(key);
     }

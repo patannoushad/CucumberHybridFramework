@@ -49,14 +49,12 @@ public class ElementUtils  {
 
         Alert alert = waitForAlert(CommonUtils.IMPLICIT_WAIT_TIME);
         alert.accept();
-
     }
 
     public void dismissAlert() {
 
         Alert alert = waitForAlert(CommonUtils.IMPLICIT_WAIT_TIME);
         alert.dismiss();
-
     }
 
     public Alert waitForAlert(long durationInSeconds) {
@@ -70,7 +68,6 @@ public class ElementUtils  {
             e.printStackTrace();
         }
         return alert;
-
     }
 
     public void mouseHoverAndClick(WebElement element) {
@@ -90,7 +87,6 @@ public class ElementUtils  {
             e.printStackTrace();
         }
         return webElement;
-
     }
 
     public void javaScriptClick(WebElement element) {
@@ -98,7 +94,6 @@ public class ElementUtils  {
         WebElement webElement = waitForVisibilityOfElement(element, CommonUtils.IMPLICIT_WAIT_TIME);
         JavascriptExecutor jse = ((JavascriptExecutor) driver);
         jse.executeScript("arguments[0].click();", webElement);
-
     }
 
     public void javaScriptType(WebElement element, String textToBeTyped) {
@@ -106,14 +101,12 @@ public class ElementUtils  {
         WebElement webElement = waitForVisibilityOfElement(element,CommonUtils.IMPLICIT_WAIT_TIME);
         JavascriptExecutor jse = ((JavascriptExecutor) driver);
         jse.executeScript("arguments[0].value='" + textToBeTyped + "'", webElement);
-
     }
 
     public String getTextFromElement(WebElement element) {
 
         WebElement webElement = waitForElement(element, CommonUtils.IMPLICIT_WAIT_TIME);
         return webElement.getText();
-
     }
 
     public boolean displayStatusOfElement(WebElement element) {
@@ -124,7 +117,10 @@ public class ElementUtils  {
         } catch (Throwable e) {
             return false;
         }
-
     }
-
+    public static void scrollToElement(WebDriver driver, WebElement element){
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].scrollIntoView({behavior: 'smooth', block:'center'});",
+        element);
+    }
 }

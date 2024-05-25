@@ -17,18 +17,18 @@ public class TestData {
         PageFactory.initElements(driver,this);
     }
     WebDriver driver;
-
     public static Map<Integer,String>key=new Hashtable<>();
     public static Map<Integer,String>values=new HashMap<>();
-    static Map<String,String>datacomb=new Hashtable<>();
+    public static Map<String,String>datacomb=new Hashtable<>();
     static File  file = new File(System.getProperty("user.dir")+"\\src\\test\\resources\\testData\\Country.xlsx");
-    public static void readTestData(String testCaseID) throws FileNotFoundException {
+    public static void readTestData(String testCaseID) {
         try {
             Workbook wb = WorkbookFactory.create(file);
             for(Sheet sheet:wb) {
                 Sheet sh = wb.getSheet(sheet.getSheetName());
                 for (Row row : sh) {
-                    Cell firstCell = row.getCell(0);
+                    if (row != null){
+                    Cell firstCell = row.getCell(0,Row.MissingCellPolicy.CREATE_NULL_AS_BLANK);
                     String firstCellValue = firstCell.getStringCellValue();
                     if (firstCellValue.equalsIgnoreCase("testcaseID")) {
                         for (Cell cell : row) {
@@ -36,7 +36,7 @@ public class TestData {
                         }
                     } else if (firstCellValue.equalsIgnoreCase(testCaseID)) {
                         for (Cell cell : row) {
-                            values.put(cell.getColumnIndex(), cell.getStringCellValue());
+                             values.put(cell.getColumnIndex(), cell.getStringCellValue());
                         }
                     }
                 }
@@ -46,7 +46,7 @@ public class TestData {
                     }
                 }
             }
-
+          }
         }catch (Exception e){
          System.out.println(e.getMessage());
         }

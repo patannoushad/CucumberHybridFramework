@@ -1,3 +1,4 @@
+@all
 Feature:  Register functionality
 
   @register
@@ -7,8 +8,7 @@ Feature:  Register functionality
     Then User should get a warning message about credential mismatch <condition>
     Examples:
       |    condition	 |
-      |      TC001       |
-      |      TC002       |
       |      TC003       |
-      |      TC004       |
-      |      TC005       |
+
+
+

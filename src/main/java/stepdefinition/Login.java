@@ -20,13 +20,10 @@ public class Login {
 
         WebDriver driver;
         private LoginPage loginPage;
-
-    private AccountPage accountPage;
+        private AccountPage accountPage;
     ElementUtils elementUtils = new ElementUtils() ;
 
 //        private CommonUtils commonUtils;
-
-
 
         @Given("^User navigate to login page$")
         public void user_navigate_to_login_page() {
@@ -40,6 +37,7 @@ public class Login {
         public void User_enters_valid_email_into_email_the_field(String emailText) {
             HomePage homePage = new HomePage(DriverFactory.getDriver());
             homePage.clickOnMyAccount();
+            homePage.selectLoginOption();
             LoginPage login = new LoginPage(DriverFactory.getDriver());
             login.enterEmailAddress(emailText);
         }
@@ -62,6 +60,7 @@ public class Login {
 
         @When("^User gives (.*) in field$")
         public void User_gives_Condition_in_field(String val) {
+
             HomePage homePage = new HomePage(DriverFactory.getDriver());
             homePage.clickOnMyAccount();
             homePage.selectLoginOption();

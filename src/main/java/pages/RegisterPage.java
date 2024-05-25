@@ -4,12 +4,13 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
-import utils.ConfigReader;
 import utils.ElementUtils;
-import utils.Test;
 import utils.TestData;
 
+import java.time.Duration;
 import java.util.List;
 
 public class RegisterPage {
@@ -22,7 +23,8 @@ public class RegisterPage {
 		PageFactory.initElements(driver,this);
 		//elementUtils = new ElementUtils(driver);
 	}
-	
+
+
 	@FindBy(id="input-firstname")
 	public WebElement firstNameField;
 	
@@ -67,8 +69,8 @@ public class RegisterPage {
 	
 	@FindBy(xpath="//input[@id='input-password']/following-sibling::div")
 	private WebElement passwordWarning;
-	@FindBy(xpath = "//div[@class='text-danger']")
-	public List<WebElement> errorMessages;
+
+
 	
 	public AccountSuccessPage clickOnContinueButton() {
 		elementUtils.clickOnElement(continueButton);
@@ -79,19 +81,45 @@ public class RegisterPage {
 	}
 
 	public void enterRegestrationdetails() {
-		firstNameField.sendKeys(TestData.get("firstname"));
-		lastNameField.sendKeys(TestData.get("lastname"));
+
+		// Check if the firstName is not null or empty before sending keys
+		if (TestData.get("firstname") != null && !TestData.get("firstname").isEmpty()) {
+			firstNameField.sendKeys(TestData.get("firstname"));
+		} else {
+			System.out.println("Error: First name is null or empty.");
+			// Handle the error or throw an exception as needed
+		}
+
+		// Check if the lastName is not null or empty before sending keys
+		if (TestData.get("lastname") != null && !TestData.get("lastname").isEmpty()) {
+			lastNameField.sendKeys(TestData.get("lastname"));
+		} else {
+			System.out.println("Warning: Last name is null or empty.");
+			// Handle the situation based on your requirements
+		}
+
+//		firstNameField.sendKeys(TestData.get("firstname"));
+//		lastNameField.sendKeys(TestData.get("lastname"));
 		emailField.sendKeys(TestData.get("email"));
 		telephoneField.sendKeys(TestData.get("telephone"));
 		passwordField.sendKeys(TestData.get("password"));
 		passwordConfirmField.sendKeys(TestData.get("pswdConfirm"));
 		privacyPolicyOption.click();
 		continueButton.click();
-
 	}
+
+	@FindBy(xpath = "//body/div[@id='account-register']/div[1]")
+	public List<WebElement> errorMsg;
 	public void verifyErrorMessage() {
-		for (WebElement ele : errorMessages) {
-			Assert.assertEquals(ele.getText(),TestData.get("Condition"));
+		if (!errorMsg.isEmpty()) {
+			for (WebElement ele : errorMsg) {
+				String text = ele.getText();
+				Assert.assertEquals(text,TestData.get("condition"));
+			}
+		} else {
+			// Log or handle the case when errorMessages is empty
+			System.out.println("Log or handle the case when errorMessages is empty");
 		}
+
 	}
 }

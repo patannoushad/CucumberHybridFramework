@@ -39,4 +39,5 @@ public class DriverFactory {
     public static WebDriver getDriver() {
         return driver;
     }
+
 }

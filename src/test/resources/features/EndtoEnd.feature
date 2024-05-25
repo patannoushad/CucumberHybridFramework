@@ -1,3 +1,4 @@
+@all
 Feature: End to End Feature functionality
 
    @VerifyShoppingCartss, @EndtoEnd
