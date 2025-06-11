@@ -2,9 +2,9 @@ name: Run Selenium Tests on Docker
 
 on:
   push:
-    branches:
-      - master
+    branches: [master]
   pull_request:
+    branches: [master]
 
 jobs:
   selenium-tests:
@@ -27,6 +27,27 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
 
-      - name: Build and Run Tests with Maven
+
+      - name: Cache Maven Dependencies
+        uses: actions/cache@v3
+        with:
+          path: ~/.m2
+          key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
+          restore-keys: ${{ runner.os }}-m2
+
+      - name: Build Project and Run Tests
         run: |
           mvn clean test -Dselenium.url=http://localhost:4444/wd/hub
+
+      - name: Upload Test Results (Surefire Reports)
+        uses: actions/upload-artifact@v3
+        with:
+          name: surefire-reports
+          path: target/surefire-reports/
+
+      - name: Upload Cucumber Reports (HTML)
+        if: always()
+        uses: actions/upload-artifact@v3
+        with:
+          name: cucumber-html-reports
+          path: target/cucumber-reports/
