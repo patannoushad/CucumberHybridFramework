@@ -19,7 +19,7 @@ jobs:
 
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v2
 
       - name: Set up Java
         uses: actions/setup-java@v3
@@ -29,7 +29,7 @@ jobs:
 
 
       - name: Cache Maven Dependencies
-        uses: actions/cache@v4
+        uses: actions/cache@v2
         with:
           path: ~/.m2
           key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
@@ -40,14 +40,14 @@ jobs:
           mvn clean test -Dselenium.url=http://localhost:4444/wd/hub
 
       - name: Upload Test Results (Surefire Reports)
-        uses: actions/upload-f@v4
+        uses: actions/upload-f@v2
         with:
           name: surefire-reports
           path: target/surefire-reports/
 
       - name: Upload Cucumber Reports (HTML)
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v2
         with:
           name: cucumber-html-reports
           path: target/cucumber-reports/
