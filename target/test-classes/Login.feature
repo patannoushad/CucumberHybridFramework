@@ -10,7 +10,7 @@ Feature: Login functionality
     And User clicks on Login button on page
     Then User should get successfully loggedin
 
-  @negative_testcase, @login
+  @negative_testcase @login
   Scenario Outline: Login with invalid credential
     Given User opens the Applications
     When User gives <condition> in field
@@ -23,10 +23,3 @@ Feature: Login functionality
       | emptyEmail       |  errorMsg  |
       | emptyPassword    |  errorMsg  |
       | emptyCredential  |  errorMsg  |
-
-
-
-
-
-
-

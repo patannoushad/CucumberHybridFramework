@@ -1,4 +1,4 @@
-@all
+@all @register
 Feature:  Register functionality
 
   @register

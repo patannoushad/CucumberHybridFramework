@@ -35,7 +35,7 @@
 <a href="#"><span class="badge badge-primary">EatOS Automation Report</span></a>
 </li>
 <li class="m-r-10">
-<a href="#"><span class="badge badge-primary">Jun 1, 2025 04:08:51 pm</span></a>
+<a href="#"><span class="badge badge-primary">Jun 11, 2025 09:33:44 pm</span></a>
 </li>
 </ul>
 </div>
@@ -57,6 +57,11 @@
 <span class="ico"><i class="fa fa-tag"></i></span>
 </a>
 </li>
+<li class="nav-item dropdown" onclick="toggleView('exception-view')">
+<a id="nav-exception" class="dropdown-toggle" href="#">
+<span class="ico"><i class="fa fa-bug"></i></span>
+</a>
+</li>
 </ul>
 </div>
 </div>      <div class="vcontainer">
@@ -66,25 +71,25 @@
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0">Started</p>
-<h3>Jun 1, 2025 04:08:51 pm</h3>
+<h3>Jun 11, 2025 09:33:44 pm</h3>
 </div></div>
 </div>
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0">Ended</p>
-<h3>Jun 1, 2025 04:09:12 pm</h3>
+<h3>Jun 11, 2025 09:34:18 pm</h3>
 </div></div>
 </div>
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0 text-pass">Features Passed</p>
-<h3>1</h3>
+<h3>0</h3>
 </div></div>
 </div>
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0 text-fail">Features Failed</p>
-<h3>0</h3>
+<h3>1</h3>
 </div></div>
 </div>
 </div>
@@ -100,13 +105,13 @@
 </div>
 </div>
 <div class="card-footer">
-<div><small data-tooltip='100%'>
-<b>1</b> features passed
+<div><small data-tooltip='0%'>
+<b>0</b> features passed
 </small>
 </div>
 <div>
-<small data-tooltip='0%'><b>0</b> features failed,
-<b>0</b> skipped, <b data-tooltip='0%'>0</b> others
+<small data-tooltip='33%'><b>1</b> features failed,
+<b>2</b> skipped, <b data-tooltip='0%'>0</b> others
 </small>
 </div>
 </div>
@@ -123,10 +128,10 @@
 </div>
 </div>
 <div class="card-footer">
-<div><small data-tooltip='100%'><b>3</b> scenarios passed</small></div>
+<div><small data-tooltip='25%'><b>3</b> scenarios passed</small></div>
 <div>
-<small data-tooltip='0%'><b>0</b> scenarios failed,
-<b>0</b> skipped, <b data-tooltip='%'>0</b> others
+<small data-tooltip='8%'><b>1</b> scenarios failed,
+<b>8</b> skipped, <b data-tooltip='%'>0</b> others
 </small>
 </div>
 </div>
@@ -143,10 +148,10 @@
 </div>
 </div>
 <div class="card-footer">
-<div><small data-tooltip='100%'><b>9</b> steps passed</small></div>
+<div><small data-tooltip='30%'><b>13</b> steps passed</small></div>
 <div>
-<small data-tooltip='0%'><b>0</b> steps failed,
-<b>0</b> skipped, <b data-tooltip='%'>0</b> others
+<small data-tooltip='2%'><b>1</b> steps failed,
+<b>29</b> skipped, <b data-tooltip='%'>0</b> others
 </small>
 </div>
 </div>
@@ -162,7 +167,7 @@
 </div></div>
 <script>
 var timeline = {
-"Register functionality":20.483
+"End to End Feature functionality":0.505,"Login functionality":9.089,"Register functionality":24.169
 };
 </script>
 <div class="row">
@@ -172,16 +177,80 @@ var timeline = {
 <div class="card-body pb-0 pt-0"><table class="table table-sm table-bordered">
 <thead><tr class="bg-gray"><th>Name</th><th>Passed</th><th>Failed</th><th>Skipped</th><th>Others</th><th>Passed %</th></tr></thead><tbody>
 <tr>
-<td>@register</td>
+<td>@all</td>
 <td>3</td>
+<td>1</td>
+<td>8</td>
+<td>0</td>
+<td>25%</td>
+</tr>
+<tr>
+<td>@VerifyShoppingCarts</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0%</td>
+</tr>
+<tr>
+<td>@register</td>
+<td>2</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>66.667%</td>
+</tr>
+<tr>
+<td>@abc</td>
+<td>0</td>
+<td>0</td>
+<td>3</td>
+<td>0</td>
+<td>0%</td>
+</tr>
+<tr>
+<td>@VerifyProductionShoppingCart</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0%</td>
+</tr>
+<tr>
+<td>@login</td>
+<td>0</td>
+<td>0</td>
+<td>5</td>
+<td>0</td>
+<td>0%</td>
+</tr>
+<tr>
+<td>@negative_testcase</td>
+<td>0</td>
+<td>0</td>
+<td>5</td>
+<td>0</td>
+<td>0%</td>
+</tr>
+<tr>
+<td>@positive_testcase</td>
+<td>1</td>
 <td>0</td>
 <td>0</td>
 <td>0</td>
 <td>100%</td>
 </tr>
 <tr>
-<td>@all</td>
+<td>@EndToEnd</td>
+<td>0</td>
+<td>0</td>
 <td>3</td>
+<td>0</td>
+<td>0%</td>
+</tr>
+<tr>
+<td>@cdp128</td>
+<td>1</td>
 <td>0</td>
 <td>0</td>
 <td>0</td>
@@ -222,21 +291,21 @@ var timeline = {
 <script>
 var statusGroup = {
 parentCount: 5,
-passParent: 1,
-failParent: 0,
+passParent: 0,
+failParent: 1,
 warningParent: 0,
-skipParent: 0,
+skipParent: 2,
 childCount: 5,
 passChild: 3,
-failChild: 0,
+failChild: 1,
 warningChild: 0,
-skipChild: 0,
+skipChild: 8,
 infoChild: 0,
 grandChildCount: 5,
-passGrandChild: 9,
-failGrandChild: 0,
+passGrandChild: 13,
+failGrandChild: 1,
 warningGrandChild: 0,
-skipGrandChild: 0,
+skipGrandChild: 29,
 infoGrandChild: 0,
 eventsCount: 5,
 };
@@ -250,7 +319,8 @@ eventsCount: 5,
 <li class="dropdown">
 <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-exclamation-circle"></i></a>
 <ul id="status-toggle" class="dropdown-menu dropdown-md p-v-0">
-<a class="dropdown-item" status="pass" href="#"><span>Pass</span><span class="status success"></span></a>
+<a class="dropdown-item" status="fail" href="#"><span>Fail</span><span class="status danger"></span></a>
+<a class="dropdown-item" status="skip" href="#"><span>Skip</span><span class="status warning"></span></a>
 <div class="dropdown-divider"></div>
 <a status="clear" class="dropdown-item" href="#"><span>Clear</span><span class="pull-right"><i class="fa fa-close"></i></span></a>
 </ul>
@@ -258,31 +328,31 @@ eventsCount: 5,
 <li class="dropdown">
 <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-tag"></i></a>
 <ul id="tag-toggle" class="dropdown-menu dropdown-md p-v-0">
-<a class="dropdown-item" href="#">@register</a><a class="dropdown-item" href="#">@all</a>
+<a class="dropdown-item" href="#">@all</a><a class="dropdown-item" href="#">@VerifyShoppingCarts</a><a class="dropdown-item" href="#">@register</a><a class="dropdown-item" href="#">@abc</a><a class="dropdown-item" href="#">@VerifyProductionShoppingCart</a><a class="dropdown-item" href="#">@login</a><a class="dropdown-item" href="#">@negative_testcase</a><a class="dropdown-item" href="#">@positive_testcase</a><a class="dropdown-item" href="#">@EndToEnd</a><a class="dropdown-item" href="#">@cdp128</a>
 </ul>
 </li>
 </ul>
 </div>    <div class="test-list-wrapper scrollable">
       <ul class="test-list-item">
-        <li class="test-item"  status="pass" test-id="1"
+        <li class="test-item"  status="skip" test-id="1"
           author=""
           tag=""
           device="">
           <div class="test-detail">
-            <p class="name">Register functionality</p>
+            <p class="name">End to End Feature functionality</p>
             <p class="text-sm">
-              <span>4:08:52 pm</span> / <span>00:00:20:483</span>
-              <span class="badge pass-bg log float-right">Pass</span>
+              <span>9:33:44 pm</span> / <span>00:00:00:505</span>
+              <span class="badge skip-bg log float-right">Skip</span>
             </p>
           </div>
           <div class="test-contents d-none">
 <div class="detail-head">
 <div class="p-v-10">
 <div class="info">
-<h5 class="test-status text-pass">Register functionality</h5>
-<span class='badge badge-success'>06.01.2025 4:08:52 pm</span>
-<span class='badge badge-danger'>06.01.2025 4:09:12 pm</span>
-<span class='badge badge-default'>00:00:20:483</span>
+<h5 class="test-status text-skip">End to End Feature functionality</h5>
+<span class='badge badge-success'>06.11.2025 9:33:44 pm</span>
+<span class='badge badge-danger'>06.11.2025 9:33:45 pm</span>
+<span class='badge badge-default'>00:00:00:505</span>
 &middot; <span class='uri-anchor badge badge-default'>#test-id=1</span>
 <span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
 <span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
@@ -294,14 +364,342 @@ eventsCount: 5,
   <div class="card">
     <div class="card-header" role="tab">
       <div class="card-title">
-        <div class="node" id="2"><span class="badge log pass-bg mr-2">Pass</span>Registration with Negative scenario</div>
+        <div class="node" id="2"><span class="badge log skip-bg mr-2">Skip</span>Verify Amount on Shopping Carts</div>
       </div>
     </div>
-        <div class="scenario_outline collapse">
+        <div class="">
+          <div class="card-body">
+              <div class="step skip-bg" title="stepDef.EndToEndStepDef.user_opens_the_application()">
+                <span>Given User opens the Applications</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepDef.EndToEndStepDef.User_Add_Product_to_Cart()">
+                <span>When User Add Product to Cart</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepDef.EndToEndStepDef.User_should_Verify_Total_no_of_Products()">
+                <span>Then User should Verify Total no of Products</span>
+      <div>Step skipped
+      </div>
+              </div>
+          </div>
+        </div>
+  </div>
+  <div class="card">
+    <div class="card-header" role="tab">
+      <div class="card-title">
+        <div class="node" id="9"><span class="badge log skip-bg mr-2">Skip</span>Verify Product name on Shopping Carts</div>
+      </div>
+    </div>
+        <div class="">
+          <div class="card-body">
+              <div class="step skip-bg" title="stepDef.EndToEndStepDef.user_opens_the_application()">
+                <span>Given User opens the Applications</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepDef.EndToEndStepDef.User_Add_MacBook_and_IPhone_to_Cart()">
+                <span>When User Add MacBook and IPhone to Cart</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepDef.EndToEndStepDef.User_should_Verify_Product_Name()">
+                <span>Then User should Verify Product Name</span>
+      <div>Step skipped
+      </div>
+              </div>
+          </div>
+        </div>
+  </div>
+  <div class="card">
+    <div class="card-header" role="tab">
+      <div class="card-title">
+        <div class="node" id="16"><span class="badge log skip-bg mr-2">Skip</span>Verify Product</div>
+      </div>
+    </div>
+        <div class="">
+          <div class="card-body">
+              <div class="step skip-bg" title="stepDef.EndToEndStepDef.user_opens_the_application()">
+                <span>Given User opens the Applications</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepDef.EndToEndStepDef.User_Add_Product_to_Cart()">
+                <span>When User Add Product to Cart</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="stepDef.EndToEndStepDef.User_should_Verify_Total_no_of_Products()">
+                <span>Then User should Verify Total no of Products</span>
+      <div>Step skipped
+      </div>
+              </div>
+          </div>
+        </div>
+  </div>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="skip" test-id="23"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">Login functionality</p>
+            <p class="text-sm">
+              <span>9:33:45 pm</span> / <span>00:00:09:089</span>
+              <span class="badge skip-bg log float-right">Skip</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-skip">Login functionality</h5>
+<span class='badge badge-success'>06.11.2025 9:33:45 pm</span>
+<span class='badge badge-danger'>06.11.2025 9:33:54 pm</span>
+<span class='badge badge-default'>00:00:09:089</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=23</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+<div class="m-t-10 m-l-5"></div>
+</div>
+</div>
+<div class="accordion mt-4">
+  <div class="card">
+    <div class="card-header" role="tab">
+      <div class="card-title">
+        <div class="node" id="24"><span class="badge log pass-bg mr-2">Pass</span>Login with valid credential</div>
+      </div>
+    </div>
+        <div class="collapse">
+          <div class="card-body">
+              <div class="step pass-bg" title="stepDef.EndToEndStepDef.user_opens_the_application()">
+                <span>Given User opens the Applications</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepDef.LoginStepDef.User_enters_valid_email_into_email_the_field(java.lang.String)">
+                <span>When User enters valid email 'testuser798@gmail.com' into the email field</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepDef.LoginStepDef.user_enters_valid_password_into_the_password_field(java.lang.String)">
+                <span>And User enters valid password User@123 into the password field</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepDef.LoginStepDef.user_clicks_on_login_button_on_page()">
+                <span>And User clicks on Login button on page</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="stepDef.LoginStepDef.user_should_get_successfully_loggedin()">
+                <span>Then User should get successfully loggedin</span>
+      <div>
+      </div>
+              </div>
+          </div>
+        </div>
+  </div>
+  <div class="card">
+    <div class="card-header" role="tab">
+      <div class="card-title">
+        <div class="node" id="33"><span class="badge log skip-bg mr-2">Skip</span>Login with invalid credential</div>
+      </div>
+    </div>
+        <div class="scenario_outline ">
             <div class="card-body l1">
               <div class="card-header">
                 <div class="card-title outline-child">
-                  <div class="node" id="3"><span class="badge log pass-bg mr-2">Pass</span>Registration with Negative scenario</div>
+                  <div class="node" id="34"><span class="badge log skip-bg mr-2">Skip</span>Login with invalid credential</div>
+                </div>
+              </div>
+              <div class="card-body mt-3 ">
+                  <div class="step skip-bg">
+                    <span>Given User opens the Applications</span>
+      <div>Step skipped
+      </div>
+                  </div>
+                  <div class="step skip-bg">
+                    <span>When User gives invalidEmail in field</span>
+      <div>Step skipped
+      </div>
+                  </div>
+                  <div class="step skip-bg">
+                    <span>And User clicks on Login button on page</span>
+      <div>Step skipped
+      </div>
+                  </div>
+                  <div class="step skip-bg">
+                    <span>Then User should get a warning message about credentials mismatch invalidEmail</span>
+      <div>Step skipped
+      </div>
+                  </div>
+              </div>
+            </div>
+            <div class="card-body l1">
+              <div class="card-header">
+                <div class="card-title outline-child">
+                  <div class="node" id="42"><span class="badge log skip-bg mr-2">Skip</span>Login with invalid credential</div>
+                </div>
+              </div>
+              <div class="card-body mt-3 ">
+                  <div class="step skip-bg">
+                    <span>Given User opens the Applications</span>
+      <div>Step skipped
+      </div>
+                  </div>
+                  <div class="step skip-bg">
+                    <span>When User gives invalidPassword in field</span>
+      <div>Step skipped
+      </div>
+                  </div>
+                  <div class="step skip-bg">
+                    <span>And User clicks on Login button on page</span>
+      <div>Step skipped
+      </div>
+                  </div>
+                  <div class="step skip-bg">
+                    <span>Then User should get a warning message about credentials mismatch invalidPassword</span>
+      <div>Step skipped
+      </div>
+                  </div>
+              </div>
+            </div>
+            <div class="card-body l1">
+              <div class="card-header">
+                <div class="card-title outline-child">
+                  <div class="node" id="50"><span class="badge log skip-bg mr-2">Skip</span>Login with invalid credential</div>
+                </div>
+              </div>
+              <div class="card-body mt-3 ">
+                  <div class="step skip-bg">
+                    <span>Given User opens the Applications</span>
+      <div>Step skipped
+      </div>
+                  </div>
+                  <div class="step skip-bg">
+                    <span>When User gives emptyEmail in field</span>
+      <div>Step skipped
+      </div>
+                  </div>
+                  <div class="step skip-bg">
+                    <span>And User clicks on Login button on page</span>
+      <div>Step skipped
+      </div>
+                  </div>
+                  <div class="step skip-bg">
+                    <span>Then User should get a warning message about credentials mismatch emptyEmail</span>
+      <div>Step skipped
+      </div>
+                  </div>
+              </div>
+            </div>
+            <div class="card-body l1">
+              <div class="card-header">
+                <div class="card-title outline-child">
+                  <div class="node" id="58"><span class="badge log skip-bg mr-2">Skip</span>Login with invalid credential</div>
+                </div>
+              </div>
+              <div class="card-body mt-3 ">
+                  <div class="step skip-bg">
+                    <span>Given User opens the Applications</span>
+      <div>Step skipped
+      </div>
+                  </div>
+                  <div class="step skip-bg">
+                    <span>When User gives emptyPassword in field</span>
+      <div>Step skipped
+      </div>
+                  </div>
+                  <div class="step skip-bg">
+                    <span>And User clicks on Login button on page</span>
+      <div>Step skipped
+      </div>
+                  </div>
+                  <div class="step skip-bg">
+                    <span>Then User should get a warning message about credentials mismatch emptyPassword</span>
+      <div>Step skipped
+      </div>
+                  </div>
+              </div>
+            </div>
+            <div class="card-body l1">
+              <div class="card-header">
+                <div class="card-title outline-child">
+                  <div class="node" id="66"><span class="badge log skip-bg mr-2">Skip</span>Login with invalid credential</div>
+                </div>
+              </div>
+              <div class="card-body mt-3 ">
+                  <div class="step skip-bg">
+                    <span>Given User opens the Applications</span>
+      <div>Step skipped
+      </div>
+                  </div>
+                  <div class="step skip-bg">
+                    <span>When User gives emptyCredential in field</span>
+      <div>Step skipped
+      </div>
+                  </div>
+                  <div class="step skip-bg">
+                    <span>And User clicks on Login button on page</span>
+      <div>Step skipped
+      </div>
+                  </div>
+                  <div class="step skip-bg">
+                    <span>Then User should get a warning message about credentials mismatch emptyCredential</span>
+      <div>Step skipped
+      </div>
+                  </div>
+              </div>
+            </div>
+        </div>
+  </div>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="fail" test-id="74"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">Register functionality</p>
+            <p class="text-sm">
+              <span>9:33:54 pm</span> / <span>00:00:24:169</span>
+              <span class="badge fail-bg log float-right">Fail</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-fail">Register functionality</h5>
+<span class='badge badge-success'>06.11.2025 9:33:54 pm</span>
+<span class='badge badge-danger'>06.11.2025 9:34:18 pm</span>
+<span class='badge badge-default'>00:00:24:169</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=74</span>
+<span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
+<span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
+</div>
+<div class="m-t-10 m-l-5"></div>
+</div>
+</div>
+<div class="accordion mt-4">
+  <div class="card">
+    <div class="card-header" role="tab">
+      <div class="card-title">
+        <div class="node" id="75"><span class="badge log fail-bg mr-2">Fail</span>Registration with Negative scenario</div>
+      </div>
+    </div>
+        <div class="scenario_outline ">
+            <div class="card-body l1">
+              <div class="card-header">
+                <div class="card-title outline-child">
+                  <div class="node" id="76"><span class="badge log pass-bg mr-2">Pass</span>Registration with Negative scenario</div>
                 </div>
               </div>
               <div class="card-body mt-3 collapse">
@@ -325,7 +723,7 @@ eventsCount: 5,
             <div class="card-body l1">
               <div class="card-header">
                 <div class="card-title outline-child">
-                  <div class="node" id="9"><span class="badge log pass-bg mr-2">Pass</span>Registration with Negative scenario</div>
+                  <div class="node" id="83"><span class="badge log pass-bg mr-2">Pass</span>Registration with Negative scenario</div>
                 </div>
               </div>
               <div class="card-body mt-3 collapse">
@@ -349,10 +747,10 @@ eventsCount: 5,
             <div class="card-body l1">
               <div class="card-header">
                 <div class="card-title outline-child">
-                  <div class="node" id="15"><span class="badge log pass-bg mr-2">Pass</span>Registration with Negative scenario</div>
+                  <div class="node" id="90"><span class="badge log fail-bg mr-2">Fail</span>Registration with Negative scenario</div>
                 </div>
               </div>
-              <div class="card-body mt-3 collapse">
+              <div class="card-body mt-3 ">
                   <div class="step pass-bg">
                     <span>Given User opens the Applications</span>
       <div>
@@ -363,9 +761,48 @@ eventsCount: 5,
       <div>
       </div>
                   </div>
-                  <div class="step pass-bg">
+                  <div class="step fail-bg">
                     <span>Then User should get a warning message about credential mismatch TC003</span>
       <div>
+        <textarea disabled class="code-block">java.lang.AssertionError: expected [Warning: E-Mail Address is already registered!] but found [Register Account
+If you already have an account with us, please login at the login page.
+Your Personal Details
+First Name
+Last Name
+E-Mail
+Telephone
+Your Password
+Password
+Password Confirm
+Newsletter
+Subscribe
+Yes
+No
+I have read and agree to the Privacy Policy  
+Login
+Register
+Forgotten Password
+My Account
+Address Book
+Wish List
+Order History
+Downloads
+Recurring payments
+Reward Points
+Returns
+Transactions
+Newsletter]
+	at org.testng.Assert.fail(Assert.java:110)
+	at org.testng.Assert.failNotEquals(Assert.java:1413)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:149)
+	at org.testng.Assert.assertEquals(Assert.java:131)
+	at org.testng.Assert.assertEquals(Assert.java:655)
+	at org.testng.Assert.assertEquals(Assert.java:665)
+	at pages.RegisterPage.verifyErrorMessage(RegisterPage.java:116)
+	at stepDef.RegisterStepDef.user_should_get_a_warning_message_about_credential_mismatch(RegisterStepDef.java:30)
+	at ✽.User should get a warning message about credential mismatch TC003(file:///C:/Users/PATAN%20MUNNA/IdeaProjects/CucumberHybridFramework/src/test/resources/Register.feature:8)
+</textarea>
+      
       </div>
                   </div>
               </div>
@@ -388,7 +825,7 @@ eventsCount: 5,
 <div class="test-list">
 <div class="test-list-tools">
 <ul class="tools pull-left"><li><a href=""><span class="font-size-14">Category</span></a></li></ul>
-<ul class="tools text-right"><li><a href="#"><span class="badge badge-primary">2</span></a></li></ul>
+<ul class="tools text-right"><li><a href="#"><span class="badge badge-primary">10</span></a></li></ul>
 </div>
 <div class="test-list-wrapper scrollable">
 <ul class="test-list-item">
@@ -396,14 +833,18 @@ eventsCount: 5,
 <div class="test-detail">
 <span class="meta">
 <span class='badge log pass-bg'>3</span>
+<span class='badge log badge-danger'>1</span>
+<span class='badge log badge-skip'>8</span>
 </span>
-<p class="name">@register</p>
-<p class="duration text-sm">3 tests</p>
+<p class="name">@all</p>
+<p class="duration text-sm">12 tests</p>
 </div>
 <div class="test-contents d-none">
 <div class="info">
-<h4>@register</h4>
+<h4>@all</h4>
 <span status="pass" class='badge log pass-bg'>3 passed</span>
+<span status="fail" class='badge log badge-danger'>1 failed</span>
+<span status="skip" class='badge log badge-skip'>8 skipped</span>
 </div>
 <table class='table table-sm mt-4'>
 <thead>
@@ -414,11 +855,101 @@ eventsCount: 5,
 </tr>
 </thead>
 <tbody>
+<tr class="tag-test-status" status="skip">
+<td><span class="badge log skip-bg">Skip</span></td>
+<td>21:33:44 pm</td>
+<td>
+<a href="#" class="linked" test-id='1' id='2'>Verify Amount on Shopping Carts</a>
+<div class="">
+<span class="badge badge-default">End to End Feature functionality.Verify Amount on Shopping Carts</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="skip">
+<td><span class="badge log skip-bg">Skip</span></td>
+<td>21:33:45 pm</td>
+<td>
+<a href="#" class="linked" test-id='1' id='9'>Verify Product name on Shopping Carts</a>
+<div class="">
+<span class="badge badge-default">End to End Feature functionality.Verify Product name on Shopping Carts</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="skip">
+<td><span class="badge log skip-bg">Skip</span></td>
+<td>21:33:45 pm</td>
+<td>
+<a href="#" class="linked" test-id='1' id='16'>Verify Product</a>
+<div class="">
+<span class="badge badge-default">End to End Feature functionality.Verify Product</span>
+</div>
+</td>
+</tr>
 <tr class="tag-test-status" status="pass">
 <td><span class="badge log pass-bg">Pass</span></td>
-<td>16:08:52 pm</td>
+<td>21:33:45 pm</td>
 <td>
-<a href="#" class="linked" test-id='1' id='3'>Registration with Negative scenario</a>
+<a href="#" class="linked" test-id='23' id='24'>Login with valid credential</a>
+<div class="">
+<span class="badge badge-default">Login functionality.Login with valid credential</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="skip">
+<td><span class="badge log skip-bg">Skip</span></td>
+<td>21:33:54 pm</td>
+<td>
+<a href="#" class="linked" test-id='23' id='34'>Login with invalid credential</a>
+<div class="">
+<span class="badge badge-default">Login functionality.Login with invalid credential</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="skip">
+<td><span class="badge log skip-bg">Skip</span></td>
+<td>21:33:54 pm</td>
+<td>
+<a href="#" class="linked" test-id='23' id='42'>Login with invalid credential</a>
+<div class="">
+<span class="badge badge-default">Login functionality.Login with invalid credential</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="skip">
+<td><span class="badge log skip-bg">Skip</span></td>
+<td>21:33:54 pm</td>
+<td>
+<a href="#" class="linked" test-id='23' id='50'>Login with invalid credential</a>
+<div class="">
+<span class="badge badge-default">Login functionality.Login with invalid credential</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="skip">
+<td><span class="badge log skip-bg">Skip</span></td>
+<td>21:33:54 pm</td>
+<td>
+<a href="#" class="linked" test-id='23' id='58'>Login with invalid credential</a>
+<div class="">
+<span class="badge badge-default">Login functionality.Login with invalid credential</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="skip">
+<td><span class="badge log skip-bg">Skip</span></td>
+<td>21:33:54 pm</td>
+<td>
+<a href="#" class="linked" test-id='23' id='66'>Login with invalid credential</a>
+<div class="">
+<span class="badge badge-default">Login functionality.Login with invalid credential</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>21:33:54 pm</td>
+<td>
+<a href="#" class="linked" test-id='74' id='76'>Registration with Negative scenario</a>
 <div class="">
 <span class="badge badge-default">Register functionality.Registration with Negative scenario</span>
 </div>
@@ -426,19 +957,19 @@ eventsCount: 5,
 </tr>
 <tr class="tag-test-status" status="pass">
 <td><span class="badge log pass-bg">Pass</span></td>
-<td>16:09:01 pm</td>
+<td>21:34:02 pm</td>
 <td>
-<a href="#" class="linked" test-id='1' id='9'>Registration with Negative scenario</a>
+<a href="#" class="linked" test-id='74' id='83'>Registration with Negative scenario</a>
 <div class="">
 <span class="badge badge-default">Register functionality.Registration with Negative scenario</span>
 </div>
 </td>
 </tr>
-<tr class="tag-test-status" status="pass">
-<td><span class="badge log pass-bg">Pass</span></td>
-<td>16:09:07 pm</td>
+<tr class="tag-test-status" status="fail">
+<td><span class="badge log fail-bg">Fail</span></td>
+<td>21:34:09 pm</td>
 <td>
-<a href="#" class="linked" test-id='1' id='15'>Registration with Negative scenario</a>
+<a href="#" class="linked" test-id='74' id='90'>Registration with Negative scenario</a>
 <div class="">
 <span class="badge badge-default">Register functionality.Registration with Negative scenario</span>
 </div>
@@ -451,15 +982,53 @@ eventsCount: 5,
 <li class="test-item">
 <div class="test-detail">
 <span class="meta">
-<span class='badge log pass-bg'>3</span>
+<span class='badge log badge-skip'>1</span>
 </span>
-<p class="name">@all</p>
+<p class="name">@VerifyShoppingCarts</p>
+<p class="duration text-sm">1 tests</p>
+</div>
+<div class="test-contents d-none">
+<div class="info">
+<h4>@VerifyShoppingCarts</h4>
+<span status="skip" class='badge log badge-skip'>1 skipped</span>
+</div>
+<table class='table table-sm mt-4'>
+<thead>
+<tr>
+<th class="status-col">Status</th>
+<th class="timestamp-col">Timestamp</th>
+<th>TestName</th>
+</tr>
+</thead>
+<tbody>
+<tr class="tag-test-status" status="skip">
+<td><span class="badge log skip-bg">Skip</span></td>
+<td>21:33:44 pm</td>
+<td>
+<a href="#" class="linked" test-id='1' id='2'>Verify Amount on Shopping Carts</a>
+<div class="">
+<span class="badge badge-default">End to End Feature functionality.Verify Amount on Shopping Carts</span>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li class="test-item">
+<div class="test-detail">
+<span class="meta">
+<span class='badge log pass-bg'>2</span>
+<span class='badge log badge-danger'>1</span>
+</span>
+<p class="name">@register</p>
 <p class="duration text-sm">3 tests</p>
 </div>
 <div class="test-contents d-none">
 <div class="info">
-<h4>@all</h4>
-<span status="pass" class='badge log pass-bg'>3 passed</span>
+<h4>@register</h4>
+<span status="pass" class='badge log pass-bg'>2 passed</span>
+<span status="fail" class='badge log badge-danger'>1 failed</span>
 </div>
 <table class='table table-sm mt-4'>
 <thead>
@@ -472,9 +1041,9 @@ eventsCount: 5,
 <tbody>
 <tr class="tag-test-status" status="pass">
 <td><span class="badge log pass-bg">Pass</span></td>
-<td>16:08:52 pm</td>
+<td>21:33:54 pm</td>
 <td>
-<a href="#" class="linked" test-id='1' id='3'>Registration with Negative scenario</a>
+<a href="#" class="linked" test-id='74' id='76'>Registration with Negative scenario</a>
 <div class="">
 <span class="badge badge-default">Register functionality.Registration with Negative scenario</span>
 </div>
@@ -482,21 +1051,445 @@ eventsCount: 5,
 </tr>
 <tr class="tag-test-status" status="pass">
 <td><span class="badge log pass-bg">Pass</span></td>
-<td>16:09:01 pm</td>
+<td>21:34:02 pm</td>
 <td>
-<a href="#" class="linked" test-id='1' id='9'>Registration with Negative scenario</a>
+<a href="#" class="linked" test-id='74' id='83'>Registration with Negative scenario</a>
 <div class="">
 <span class="badge badge-default">Register functionality.Registration with Negative scenario</span>
 </div>
 </td>
 </tr>
-<tr class="tag-test-status" status="pass">
-<td><span class="badge log pass-bg">Pass</span></td>
-<td>16:09:07 pm</td>
+<tr class="tag-test-status" status="fail">
+<td><span class="badge log fail-bg">Fail</span></td>
+<td>21:34:09 pm</td>
 <td>
-<a href="#" class="linked" test-id='1' id='15'>Registration with Negative scenario</a>
+<a href="#" class="linked" test-id='74' id='90'>Registration with Negative scenario</a>
 <div class="">
 <span class="badge badge-default">Register functionality.Registration with Negative scenario</span>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li class="test-item">
+<div class="test-detail">
+<span class="meta">
+<span class='badge log badge-skip'>3</span>
+</span>
+<p class="name">@abc</p>
+<p class="duration text-sm">3 tests</p>
+</div>
+<div class="test-contents d-none">
+<div class="info">
+<h4>@abc</h4>
+<span status="skip" class='badge log badge-skip'>3 skipped</span>
+</div>
+<table class='table table-sm mt-4'>
+<thead>
+<tr>
+<th class="status-col">Status</th>
+<th class="timestamp-col">Timestamp</th>
+<th>TestName</th>
+</tr>
+</thead>
+<tbody>
+<tr class="tag-test-status" status="skip">
+<td><span class="badge log skip-bg">Skip</span></td>
+<td>21:33:44 pm</td>
+<td>
+<a href="#" class="linked" test-id='1' id='2'>Verify Amount on Shopping Carts</a>
+<div class="">
+<span class="badge badge-default">End to End Feature functionality.Verify Amount on Shopping Carts</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="skip">
+<td><span class="badge log skip-bg">Skip</span></td>
+<td>21:33:45 pm</td>
+<td>
+<a href="#" class="linked" test-id='1' id='9'>Verify Product name on Shopping Carts</a>
+<div class="">
+<span class="badge badge-default">End to End Feature functionality.Verify Product name on Shopping Carts</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="skip">
+<td><span class="badge log skip-bg">Skip</span></td>
+<td>21:33:45 pm</td>
+<td>
+<a href="#" class="linked" test-id='1' id='16'>Verify Product</a>
+<div class="">
+<span class="badge badge-default">End to End Feature functionality.Verify Product</span>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li class="test-item">
+<div class="test-detail">
+<span class="meta">
+<span class='badge log badge-skip'>1</span>
+</span>
+<p class="name">@VerifyProductionShoppingCart</p>
+<p class="duration text-sm">1 tests</p>
+</div>
+<div class="test-contents d-none">
+<div class="info">
+<h4>@VerifyProductionShoppingCart</h4>
+<span status="skip" class='badge log badge-skip'>1 skipped</span>
+</div>
+<table class='table table-sm mt-4'>
+<thead>
+<tr>
+<th class="status-col">Status</th>
+<th class="timestamp-col">Timestamp</th>
+<th>TestName</th>
+</tr>
+</thead>
+<tbody>
+<tr class="tag-test-status" status="skip">
+<td><span class="badge log skip-bg">Skip</span></td>
+<td>21:33:45 pm</td>
+<td>
+<a href="#" class="linked" test-id='1' id='9'>Verify Product name on Shopping Carts</a>
+<div class="">
+<span class="badge badge-default">End to End Feature functionality.Verify Product name on Shopping Carts</span>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li class="test-item">
+<div class="test-detail">
+<span class="meta">
+<span class='badge log badge-skip'>5</span>
+</span>
+<p class="name">@login</p>
+<p class="duration text-sm">5 tests</p>
+</div>
+<div class="test-contents d-none">
+<div class="info">
+<h4>@login</h4>
+<span status="skip" class='badge log badge-skip'>5 skipped</span>
+</div>
+<table class='table table-sm mt-4'>
+<thead>
+<tr>
+<th class="status-col">Status</th>
+<th class="timestamp-col">Timestamp</th>
+<th>TestName</th>
+</tr>
+</thead>
+<tbody>
+<tr class="tag-test-status" status="skip">
+<td><span class="badge log skip-bg">Skip</span></td>
+<td>21:33:54 pm</td>
+<td>
+<a href="#" class="linked" test-id='23' id='34'>Login with invalid credential</a>
+<div class="">
+<span class="badge badge-default">Login functionality.Login with invalid credential</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="skip">
+<td><span class="badge log skip-bg">Skip</span></td>
+<td>21:33:54 pm</td>
+<td>
+<a href="#" class="linked" test-id='23' id='42'>Login with invalid credential</a>
+<div class="">
+<span class="badge badge-default">Login functionality.Login with invalid credential</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="skip">
+<td><span class="badge log skip-bg">Skip</span></td>
+<td>21:33:54 pm</td>
+<td>
+<a href="#" class="linked" test-id='23' id='50'>Login with invalid credential</a>
+<div class="">
+<span class="badge badge-default">Login functionality.Login with invalid credential</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="skip">
+<td><span class="badge log skip-bg">Skip</span></td>
+<td>21:33:54 pm</td>
+<td>
+<a href="#" class="linked" test-id='23' id='58'>Login with invalid credential</a>
+<div class="">
+<span class="badge badge-default">Login functionality.Login with invalid credential</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="skip">
+<td><span class="badge log skip-bg">Skip</span></td>
+<td>21:33:54 pm</td>
+<td>
+<a href="#" class="linked" test-id='23' id='66'>Login with invalid credential</a>
+<div class="">
+<span class="badge badge-default">Login functionality.Login with invalid credential</span>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li class="test-item">
+<div class="test-detail">
+<span class="meta">
+<span class='badge log badge-skip'>5</span>
+</span>
+<p class="name">@negative_testcase</p>
+<p class="duration text-sm">5 tests</p>
+</div>
+<div class="test-contents d-none">
+<div class="info">
+<h4>@negative_testcase</h4>
+<span status="skip" class='badge log badge-skip'>5 skipped</span>
+</div>
+<table class='table table-sm mt-4'>
+<thead>
+<tr>
+<th class="status-col">Status</th>
+<th class="timestamp-col">Timestamp</th>
+<th>TestName</th>
+</tr>
+</thead>
+<tbody>
+<tr class="tag-test-status" status="skip">
+<td><span class="badge log skip-bg">Skip</span></td>
+<td>21:33:54 pm</td>
+<td>
+<a href="#" class="linked" test-id='23' id='34'>Login with invalid credential</a>
+<div class="">
+<span class="badge badge-default">Login functionality.Login with invalid credential</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="skip">
+<td><span class="badge log skip-bg">Skip</span></td>
+<td>21:33:54 pm</td>
+<td>
+<a href="#" class="linked" test-id='23' id='42'>Login with invalid credential</a>
+<div class="">
+<span class="badge badge-default">Login functionality.Login with invalid credential</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="skip">
+<td><span class="badge log skip-bg">Skip</span></td>
+<td>21:33:54 pm</td>
+<td>
+<a href="#" class="linked" test-id='23' id='50'>Login with invalid credential</a>
+<div class="">
+<span class="badge badge-default">Login functionality.Login with invalid credential</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="skip">
+<td><span class="badge log skip-bg">Skip</span></td>
+<td>21:33:54 pm</td>
+<td>
+<a href="#" class="linked" test-id='23' id='58'>Login with invalid credential</a>
+<div class="">
+<span class="badge badge-default">Login functionality.Login with invalid credential</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="skip">
+<td><span class="badge log skip-bg">Skip</span></td>
+<td>21:33:54 pm</td>
+<td>
+<a href="#" class="linked" test-id='23' id='66'>Login with invalid credential</a>
+<div class="">
+<span class="badge badge-default">Login functionality.Login with invalid credential</span>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li class="test-item">
+<div class="test-detail">
+<span class="meta">
+<span class='badge log pass-bg'>1</span>
+</span>
+<p class="name">@positive_testcase</p>
+<p class="duration text-sm">1 tests</p>
+</div>
+<div class="test-contents d-none">
+<div class="info">
+<h4>@positive_testcase</h4>
+<span status="pass" class='badge log pass-bg'>1 passed</span>
+</div>
+<table class='table table-sm mt-4'>
+<thead>
+<tr>
+<th class="status-col">Status</th>
+<th class="timestamp-col">Timestamp</th>
+<th>TestName</th>
+</tr>
+</thead>
+<tbody>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>21:33:45 pm</td>
+<td>
+<a href="#" class="linked" test-id='23' id='24'>Login with valid credential</a>
+<div class="">
+<span class="badge badge-default">Login functionality.Login with valid credential</span>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li class="test-item">
+<div class="test-detail">
+<span class="meta">
+<span class='badge log badge-skip'>3</span>
+</span>
+<p class="name">@EndToEnd</p>
+<p class="duration text-sm">3 tests</p>
+</div>
+<div class="test-contents d-none">
+<div class="info">
+<h4>@EndToEnd</h4>
+<span status="skip" class='badge log badge-skip'>3 skipped</span>
+</div>
+<table class='table table-sm mt-4'>
+<thead>
+<tr>
+<th class="status-col">Status</th>
+<th class="timestamp-col">Timestamp</th>
+<th>TestName</th>
+</tr>
+</thead>
+<tbody>
+<tr class="tag-test-status" status="skip">
+<td><span class="badge log skip-bg">Skip</span></td>
+<td>21:33:44 pm</td>
+<td>
+<a href="#" class="linked" test-id='1' id='2'>Verify Amount on Shopping Carts</a>
+<div class="">
+<span class="badge badge-default">End to End Feature functionality.Verify Amount on Shopping Carts</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="skip">
+<td><span class="badge log skip-bg">Skip</span></td>
+<td>21:33:45 pm</td>
+<td>
+<a href="#" class="linked" test-id='1' id='9'>Verify Product name on Shopping Carts</a>
+<div class="">
+<span class="badge badge-default">End to End Feature functionality.Verify Product name on Shopping Carts</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="skip">
+<td><span class="badge log skip-bg">Skip</span></td>
+<td>21:33:45 pm</td>
+<td>
+<a href="#" class="linked" test-id='1' id='16'>Verify Product</a>
+<div class="">
+<span class="badge badge-default">End to End Feature functionality.Verify Product</span>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li class="test-item">
+<div class="test-detail">
+<span class="meta">
+<span class='badge log pass-bg'>1</span>
+</span>
+<p class="name">@cdp128</p>
+<p class="duration text-sm">1 tests</p>
+</div>
+<div class="test-contents d-none">
+<div class="info">
+<h4>@cdp128</h4>
+<span status="pass" class='badge log pass-bg'>1 passed</span>
+</div>
+<table class='table table-sm mt-4'>
+<thead>
+<tr>
+<th class="status-col">Status</th>
+<th class="timestamp-col">Timestamp</th>
+<th>TestName</th>
+</tr>
+</thead>
+<tbody>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>21:33:45 pm</td>
+<td>
+<a href="#" class="linked" test-id='23' id='24'>Login with valid credential</a>
+<div class="">
+<span class="badge badge-default">Login functionality.Login with valid credential</span>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="test-content scrollable">
+<div class="test-content-detail">
+<div class="detail-body"></div>
+</div>
+</div>
+</div><div class="test-wrapper row view exception-view attributes-view">
+<div class="test-list">
+<div class="test-list-tools">
+<ul class="tools pull-left"><li><a href=""><span class="font-size-14">Exception</span></a></li></ul>
+<ul class="tools text-right"><li><a href="#"><span class="badge badge-primary">1</span></a></li></ul>
+</div>
+<div class="test-list-wrapper scrollable">
+<ul class="test-list-item">
+<li class="test-item">
+<div class="test-detail">
+<span class="meta">
+<span class='badge log badge-danger'>1</span>
+</span>
+<p class="name">java.lang.AssertionError</p>
+<p class="duration text-sm">1 tests</p>
+</div>
+<div class="test-contents d-none">
+<div class="info">
+<h4>java.lang.AssertionError</h4>
+<span status="fail" class='badge log badge-danger'>1 failed</span>
+</div>
+<table class='table table-sm mt-4'>
+<thead>
+<tr>
+<th class="status-col">Status</th>
+<th class="timestamp-col">Timestamp</th>
+<th>TestName</th>
+</tr>
+</thead>
+<tbody>
+<tr class="tag-test-status" status="fail">
+<td><span class="badge log fail-bg">Fail</span></td>
+<td>21:34:18 pm</td>
+<td>
+<a href="#" class="linked" test-id='74' id='95'>Then User should get a warning message about credential mismatch TC003</a>
+<div class="">
+<span class="badge badge-default">Register functionality.Registration with Negative scenario.Then User should get a warning message about credential mismatch TC003</span>
 </div>
 </td>
 </tr>
