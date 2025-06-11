@@ -14,7 +14,7 @@ Feature: End to End Feature functionality
     Then User should Verify Product Name
 
   @EndtoEnd
-  Scenario: verify Product
+  Scenario: Verify Product
     Given User opens the Applications
     When User Add Product to Cart
     Then User should Verify Total no of Products

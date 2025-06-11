@@ -4,17 +4,10 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.devtools.v85.indexeddb.model.Key;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-
-import org.openqa.selenium.support.ui.FluentWait;
-import org.openqa.selenium.support.ui.Wait;
-import org.testng.annotations.Test;
 import utils.ElementUtils;
-
-import java.time.Duration;
 
 public class HomePage {
 	public HomePage(WebDriver driver) {
@@ -76,8 +69,5 @@ public class HomePage {
 		// Perform drag and drop
 		actions.dragAndDrop(source, target).perform();
 		actions.sendKeys(Keys.ADD);
-
-
 	}
-
 }

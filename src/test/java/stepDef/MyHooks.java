@@ -1,28 +1,60 @@
 package stepDef;
 
 import factory.DriverFactory;
-import io.cucumber.java.After;
-import io.cucumber.java.Before;
-import io.cucumber.java.Scenario;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
+import io.cucumber.java.*;
+import org.junit.Assume;
 import utils.ConfigReader;
+import utils.ReportManager;
+import utils.TestCaseFilter;
 
 public class MyHooks {
-        @Before
-        public void setup() {
-            DriverFactory.initializeBrowser(ConfigReader.getPropertyValue("browser"));
-            DriverFactory.getDriver().get(ConfigReader.getPropertyValue("url"));
+
+    @BeforeAll
+    public static void beforeAll() {
+        ReportManager.initReport();
+    }
+
+    @Before
+    public void beforeScenario(Scenario scenario) {
+        String scenarioName = scenario.getName().trim();
+        ReportManager.startTest(scenarioName);
+
+        boolean shouldRun = TestCaseFilter.shouldRunScenario(scenarioName);
+        if (!shouldRun) {
+            ReportManager.logSkip("Skipped based on Excel: " + scenarioName);
+            Assume.assumeTrue(false); // Will stop scenario without marking as fail
         }
-        @After
-        public void tearDown(Scenario scenario) {
-            String scenarioName = scenario.getName().replaceAll(" ", "_");
-            if (scenario.isFailed()) {
-                byte[] srcScreenshot = (byte[])((TakesScreenshot)DriverFactory.getDriver()).getScreenshotAs(OutputType.BYTES);
-                scenario.attach(srcScreenshot, "image/png", scenarioName);
-            }
-            DriverFactory.getDriver().close();
-        }
+
+        DriverFactory.initializeBrowser(ConfigReader.getPropertyValue("browser"));
+        DriverFactory.getDriver().get(ConfigReader.getPropertyValue("url"));
     }
 
 
+//    @After
+//    public void tearDown(Scenario scenario) {
+//        if (DriverFactory.getDriver() != null) {
+//            if (scenario.isFailed()) {
+//                String scenarioName = scenario.getName().replaceAll(" ", "_");
+//                byte[] srcScreenshot = ((TakesScreenshot) DriverFactory.getDriver()).getScreenshotAs(OutputType.BYTES);
+//                scenario.attach(srcScreenshot, "image/png", scenarioName);
+//            }
+//            DriverFactory.getDriver().quit();
+//        }
+//    }
+@After
+public void tearDown(Scenario scenario) {
+    if (DriverFactory.getDriver() != null) {
+        if (scenario.isFailed()) {
+            ReportManager.logFail("Scenario failed: " + scenario.getName());
+        } else {
+            ReportManager.logPass("Scenario passed: " + scenario.getName());
+        }
+        DriverFactory.getDriver().quit();
+    }
+}
+    @AfterAll
+    public static void afterAll() {
+        ReportManager.flushReport();
+    }
+
+}

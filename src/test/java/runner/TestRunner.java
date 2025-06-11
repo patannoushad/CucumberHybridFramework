@@ -11,7 +11,6 @@ import static io.cucumber.testng.CucumberOptions.SnippetType.CAMELCASE;
         ,glue = {"stepDef"}
         ,snippets = CAMELCASE
         ,monochrome=false
-        ,tags = "@register"
 )
 public class TestRunner extends AbstractTestNGCucumberTests {
 
