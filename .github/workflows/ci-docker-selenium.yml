@@ -2,9 +2,9 @@ name: Run Selenium Cucumber Tests
 
 on:
   push:
-    branches: [ main ]
+    branches: [ git-actions ]
   pull_request:
-    branches: [ main ]
+    branches: [ git-actions ]
 
 jobs:
   test:
