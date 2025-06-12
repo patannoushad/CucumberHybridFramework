@@ -19,9 +19,11 @@ public class DriverFactory {
         if (browserName.equals("chrome")) {
             // WebDriverManager.chromedriver().setup();
             ChromeOptions option = new ChromeOptions();
-            //  option.setCapability(CapabilityType.ACCEPT_INSECURE_CERTS, true);
-//            option.addArguments("--headless");    // if you want to run on headless module uncomment it
             option.addArguments("--remote-allow-origins=*");
+            option.addArguments("--no-sandbox");
+            option.addArguments("--disable-dev-shm-usage");
+            option.addArguments("--headless=new");  // optional if you're running in CI
+            option.addArguments("--user-data-dir=/tmp/chrome-profile-" + System.currentTimeMillis());
             driver = new ChromeDriver(option);
         } else if (browserName.equals("firefox")) {
             driver = new FirefoxDriver();
