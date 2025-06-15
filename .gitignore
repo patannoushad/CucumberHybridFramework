@@ -16,7 +16,7 @@ target/
 build/
 
 # Logs
-*.log
+logs/
 
 # OS Files
 .DS_Store
@@ -39,6 +39,8 @@ Thumbs.db
 
 # Test reports
 /test-output/
+
+
 
 # JAR/WAR/EAR files
 *.jar
