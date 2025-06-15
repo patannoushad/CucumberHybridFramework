@@ -3,6 +3,8 @@ package stepDef;
 import factory.DriverFactory;
 import io.cucumber.java.*;
 import org.junit.Assume;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import utils.ConfigReader;
 import utils.ReportManager;
 import utils.TestCaseFilter;
@@ -46,6 +48,9 @@ public void tearDown(Scenario scenario) {
     if (DriverFactory.getDriver() != null) {
         if (scenario.isFailed()) {
             ReportManager.logFail("Scenario failed: " + scenario.getName());
+            String scenarioName = scenario.getName().replaceAll(" ", "_");
+            byte[] srcScreenshot = ((TakesScreenshot) DriverFactory.getDriver()).getScreenshotAs(OutputType.BYTES);
+            scenario.attach(srcScreenshot, "image/png", scenarioName);
         } else {
             ReportManager.logPass("Scenario passed: " + scenario.getName());
         }
@@ -56,5 +61,4 @@ public void tearDown(Scenario scenario) {
     public static void afterAll() {
         ReportManager.flushReport();
     }
-
 }

@@ -19,10 +19,11 @@ import java.util.Map;
 
 public class LoginStepDef {
 
-        WebDriver driver;
-        LoginPage loginPage;
-        AccountPage accountPage;
+        WebDriver driver = DriverFactory.getDriver();
+        LoginPage loginPage = new LoginPage(driver);
+        AccountPage accountPage = new AccountPage(driver);
         ElementUtils elementUtils = new ElementUtils() ;
+        HomePage homePage= new HomePage(driver);
 
 
 //        private CommonUtils commonUtils;
@@ -30,35 +31,30 @@ public class LoginStepDef {
         @Given("^User navigate to login page$")
         public void user_navigate_to_login_page() {
 
-            driver = DriverFactory.getDriver();
+//            driver = DriverFactory.getDriver();
 //		HomePage homePage = new HomePage(DriverFactory.getDriver());
 //		homePage.clickOnMyAccount();
 //		loginPage = homePage.selectLoginOption();
         }
         @When("User enters valid email {string} into the email field")
         public void User_enters_valid_email_into_email_the_field(String emailText) {
-            HomePage homePage = new HomePage(DriverFactory.getDriver());
             homePage.clickOnMyAccount();
             homePage.selectLoginOption();
-            LoginPage login = new LoginPage(DriverFactory.getDriver());
-            login.enterEmailAddress(emailText);
+            loginPage.enterEmailAddress(emailText);
         }
         @And("^User enters valid password (.+) into the password field$")
         public void user_enters_valid_password_into_the_password_field(String passwordText) {
-            LoginPage login = new LoginPage(DriverFactory.getDriver());
-            login.enterPassword(passwordText);
+            loginPage.enterPassword(passwordText);
         }
         @And("User clicks on Login button on page")
         public void user_clicks_on_login_button_on_page() {
-            LoginPage login = new LoginPage(DriverFactory.getDriver());
             // login.clickOnLoginButton();
-            login.getLoginText(ConfigReader.getPropertyValue("logintrxt"));
+            loginPage.getLoginText(ConfigReader.getPropertyValue("logintrxt"));
         }
 
         @Then("User should get successfully loggedin")
         public void user_should_get_successfully_loggedin() {
-            AccountPage accountPage1 = new AccountPage(DriverFactory.getDriver());
-            	Assert.assertTrue(accountPage1.displayStatusOfEditYourAccountInformationOption());
+            	Assert.assertTrue(accountPage.displayStatusOfEditYourAccountInformationOption());
         }
 
         @When("^User gives (.*) in field$")

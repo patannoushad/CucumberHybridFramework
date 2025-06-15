@@ -10,11 +10,12 @@ import org.openqa.selenium.support.PageFactory;
 import utils.ElementUtils;
 
 public class HomePage {
+	WebDriver driver;
 	public HomePage(WebDriver driver) {
 		this.driver = driver;
 		PageFactory.initElements(driver,this);
 	}
-	WebDriver driver;
+
 	ElementUtils elementUtils = new ElementUtils() ;
 
 	@FindBy(xpath="//span[text()='My Account']")
