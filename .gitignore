@@ -26,7 +26,7 @@ reports/
 Thumbs.db
 
 # Environment
-.env
+#.env
 
 # Eclipse (if ever opened in Eclipse)
 *.project
