@@ -9,7 +9,7 @@ public class ConfigReader {
     static Properties prop;
 
     static {
-        File proFile = new File(System.getProperty("user.dir") + "\\src\\main\\resources\\config.properties");
+        File proFile = new File(System.getProperty("user.dir") + File.separator+"src"+File.separator+"main"+File.separator+"resources"+File.separator+"config.properties");
 
         try {
             prop = new Properties();
