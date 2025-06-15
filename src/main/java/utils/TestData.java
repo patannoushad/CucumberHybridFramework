@@ -18,7 +18,7 @@ public class TestData {
     public static Map<Integer,String>key=new Hashtable<>();
     public static Map<Integer,String>values=new HashMap<>();
     public static Map<String,String> dataComb =new Hashtable<>();
-    static File  file = new File(System.getProperty("user.dir")+"\\src\\main\\resources\\testData\\Country.xlsx");
+    static File  file = new File(System.getProperty("user.dir")+File.separator+"src" + File.separator + "main" + File.separator + "resources" +File.separator + "testData" + File.separator + "Country.xlsx");
     public static void readTestData(String testCaseID) {
         try {
             Workbook wb = WorkbookFactory.create(file);
