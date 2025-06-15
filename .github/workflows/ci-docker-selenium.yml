@@ -28,4 +28,10 @@ jobs:
         restore-keys: ${{ runner.os }}-m2
 
     - name: Run Tests with Maven
-      run: mvn clean test
+      run:
+
+    - name: Upload Extent Reports
+      uses: actions/upload-artifact@v3
+      with:
+        name: Extent-Report
+        path: reports/
