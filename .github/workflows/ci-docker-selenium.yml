@@ -7,9 +7,9 @@ on:
     branches: [ master ]
 
 jobs:
-  test:
+  run-cucumber-tests: # <-- Custom job ID (can be anything)
+    name: Run Selenium Cucumber Tests  # <-- This is the visible job name in GitHub Actions UI
     runs-on: ubuntu-latest
-
     steps:
     - name: Checkout code
       uses: actions/checkout@v3
